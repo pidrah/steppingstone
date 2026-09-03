@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title id="title">Sample demonstration interior photograph</title>
+  <rect width="1200" height="900" fill="#efe8dc"/>
+  <rect x="80" y="80" width="1040" height="620" fill="#f7f5f1"/>
+  <rect x="80" y="700" width="1040" height="120" fill="#d9cbb6"/>
+  <rect x="160" y="420" width="280" height="160" fill="#1a6b3c"/>
+  <rect x="760" y="300" width="260" height="380" fill="#c5d9c8"/>
+  <rect x="180" y="200" width="220" height="140" fill="#9ec3ab"/>
+  <text x="600" y="160" text-anchor="middle" fill="#12492a" font-family="Georgia, serif" font-size="42">SAMPLE INTERIOR</text>
+  <text x="600" y="840" text-anchor="middle" fill="#12492a" font-family="Georgia, serif" font-size="28">Demonstration only — not a real property</text>
+</svg>

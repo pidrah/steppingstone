@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title id="title">Sample demonstration apartment listing</title>
+  <rect width="1200" height="900" fill="#e6f1ea"/>
+  <rect x="220" y="120" width="760" height="680" fill="#f7f5f1"/>
+  <rect x="220" y="120" width="760" height="70" fill="#1a6b3c"/>
+  <rect x="280" y="240" width="160" height="120" fill="#9ec3ab"/>
+  <rect x="520" y="240" width="160" height="120" fill="#9ec3ab"/>
+  <rect x="760" y="240" width="160" height="120" fill="#9ec3ab"/>
+  <rect x="280" y="420" width="160" height="120" fill="#c5d9c8"/>
+  <rect x="520" y="420" width="160" height="120" fill="#c5d9c8"/>
+  <rect x="760" y="420" width="160" height="120" fill="#c5d9c8"/>
+  <rect x="560" y="620" width="80" height="180" fill="#12492a"/>
+  <text x="600" y="80" text-anchor="middle" fill="#12492a" font-family="Georgia, serif" font-size="42">SAMPLE LISTING</text>
+  <text x="600" y="860" text-anchor="middle" fill="#12492a" font-family="Georgia, serif" font-size="28">Demonstration only — not a real property</text>
+</svg>

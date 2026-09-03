@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title">
+  <title id="title">Sample demonstration house listing</title>
+  <rect width="1200" height="900" fill="#d7eadc"/>
+  <rect x="0" y="620" width="1200" height="280" fill="#c5d9c8"/>
+  <polygon points="260,430 600,210 940,430" fill="#1a6b3c"/>
+  <rect x="310" y="430" width="580" height="340" fill="#f7f5f1"/>
+  <rect x="780" y="250" width="70" height="140" fill="#12492a"/>
+  <rect x="540" y="560" width="120" height="210" fill="#1a6b3c"/>
+  <rect x="380" y="500" width="110" height="90" fill="#9ec3ab"/>
+  <rect x="710" y="500" width="110" height="90" fill="#9ec3ab"/>
+  <text x="600" y="160" text-anchor="middle" fill="#12492a" font-family="Georgia, serif" font-size="42">SAMPLE LISTING</text>
+  <text x="600" y="830" text-anchor="middle" fill="#12492a" font-family="Georgia, serif" font-size="28">Demonstration only — not a real property</text>
+</svg>
