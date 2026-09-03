@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
+import type { ReactNode } from "react";
 import { COMPANY } from "@/lib/constants";
 import { siteUrl } from "@/lib/utils";
 import "./globals.css";
@@ -58,7 +59,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"

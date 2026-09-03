@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   addPropertyImage,
   deletePropertyImage,
@@ -19,7 +19,7 @@ function isRemote(src: string) {
   return src.startsWith("http://") || src.startsWith("https://");
 }
 
-export function ImageManager({
+function ImageManagerContent({
   propertyId,
   images,
   altBase,
@@ -30,9 +30,6 @@ export function ImageManager({
 }) {
   const router = useRouter();
   const [ordered, setOrdered] = useState(images);
-  useEffect(() => {
-    setOrdered(images);
-  }, [images]);
   const [message, setMessage] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
@@ -233,4 +230,16 @@ export function ImageManager({
       )}
     </section>
   );
+}
+
+export function ImageManager(props: {
+  propertyId: string;
+  images: PropertyImage[];
+  altBase: string;
+}) {
+  const imageKey = props.images
+    .map((image) => `${image.id}:${image.sort_order}:${image.is_primary}`)
+    .join("|");
+
+  return <ImageManagerContent key={imageKey} {...props} />;
 }

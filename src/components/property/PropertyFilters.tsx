@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { useMemo } from "react";
 import { LISTING_TYPES, PROPERTY_TYPES } from "@/lib/constants";
 import type { PropertyFilters as Filters } from "@/lib/types";
@@ -42,7 +43,7 @@ export function PropertyFilters({
         {listingTabs.map((tab) => {
           const active = (current.listing ?? "all") === tab.value;
           return (
-            <a
+            <Link
               key={tab.value}
               href={tab.value === "all" ? "/properties" : `/properties?listing=${tab.value}`}
               className={
@@ -52,7 +53,7 @@ export function PropertyFilters({
               }
             >
               {tab.label}
-            </a>
+            </Link>
           );
         })}
       </div>
@@ -152,12 +153,12 @@ export function PropertyFilters({
         >
           Apply filters
         </button>
-        <a
+        <Link
           href="/properties"
           className="rounded-full border border-border px-5 py-2.5 text-sm font-medium hover:border-brand"
         >
           Clear
-        </a>
+        </Link>
       </div>
     </form>
   );
