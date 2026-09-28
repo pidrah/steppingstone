@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-
-export const dynamic = "force-dynamic";
 import { PropertyFilters } from "@/components/property/PropertyFilters";
 import { PropertyGrid } from "@/components/property/PropertyGrid";
 import { Container } from "@/components/ui/Container";
 import { LISTING_TYPES } from "@/lib/constants";
 import { getLocations, getPublishedProperties } from "@/lib/queries";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Properties for sale and rent in Guyana",

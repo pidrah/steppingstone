@@ -1,6 +1,4 @@
 import Link from "next/link";
-
-export const dynamic = "force-dynamic";
 import { ContactActions } from "@/components/property/ContactActions";
 import { PropertyGrid } from "@/components/property/PropertyGrid";
 import { Container } from "@/components/ui/Container";
@@ -13,6 +11,8 @@ import {
   getSiteContent,
 } from "@/lib/queries";
 import { hasText, parseLines } from "@/lib/utils";
+
+export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const [featured, all, services, profile, content] = await Promise.all([

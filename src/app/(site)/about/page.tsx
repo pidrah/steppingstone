@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-
-export const dynamic = "force-dynamic";
 import Image from "next/image";
 import { ContactActions } from "@/components/property/ContactActions";
 import { Container } from "@/components/ui/Container";
 import { COMPANY } from "@/lib/constants";
 import { getRealtorProfile } from "@/lib/queries";
 import { hasText } from "@/lib/utils";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Principal Realtor — Deji Aderemi",

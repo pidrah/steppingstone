@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-
-export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ContactActions } from "@/components/property/ContactActions";
@@ -14,6 +12,8 @@ import {
   listingLabel,
   propertyTypeLabel,
 } from "@/lib/utils";
+
+export const dynamic = "force-dynamic";
 
 type Props = { params: Promise<{ slug: string }> };
 

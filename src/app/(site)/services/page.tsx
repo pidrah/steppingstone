@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-
-export const dynamic = "force-dynamic";
 import { ContactActions } from "@/components/property/ContactActions";
 import { Container } from "@/components/ui/Container";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { getPublishedServices, getSiteContent } from "@/lib/queries";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Property management in Guyana",
