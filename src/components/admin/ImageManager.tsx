@@ -77,6 +77,9 @@ function ImageManagerContent({
           sortOrder: ordered.length + saved,
         });
         if (!result.ok) {
+          // Clean up the orphaned file so storage is not left with an image
+          // that has no database row.
+          await supabase.storage.from("property-images").remove([path]);
           setError(result.error ?? "The image uploaded but could not be saved.");
           continue;
         }

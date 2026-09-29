@@ -6,7 +6,13 @@ import type { ActionResult } from "@/lib/types";
 
 const initial: ActionResult = { ok: false };
 
-export function LoginForm({ configured }: { configured: boolean }) {
+export function LoginForm({
+  configured,
+  next = "/admin",
+}: {
+  configured: boolean;
+  next?: string;
+}) {
   const [state, action, pending] = useActionState(signIn, initial);
 
   if (!configured) {
@@ -25,6 +31,7 @@ export function LoginForm({ configured }: { configured: boolean }) {
 
   return (
     <form action={action} className="space-y-4">
+      <input type="hidden" name="next" value={next} />
       {state.error ? (
         <p className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-800" role="alert">
           {state.error}

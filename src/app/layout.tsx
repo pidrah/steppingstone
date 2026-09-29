@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Source_Sans_3 } from "next/font/google";
+import localFont from "next/font/local";
 import type { ReactNode } from "react";
 import { COMPANY } from "@/lib/constants";
 import { siteUrl } from "@/lib/utils";
 import "./globals.css";
 
-const sourceSans = Source_Sans_3({
-  subsets: ["latin"],
+// Self-hosted variable fonts (latin subset). next/font/google is avoided so
+// builds never depend on a live Google Fonts request — Google's css2 API
+// sometimes returns extensionless /l/font URLs that break builds
+// (see vercel/next.js#99114).
+const sourceSans = localFont({
+  src: "./fonts/source-sans-3-variable.woff2",
+  weight: "200 900",
   variable: "--font-source-sans",
   display: "swap",
 });
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
+const cormorant = localFont({
+  src: "./fonts/cormorant-garamond-variable.woff2",
+  weight: "300 700",
   variable: "--font-cormorant",
   display: "swap",
 });

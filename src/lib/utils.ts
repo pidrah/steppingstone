@@ -14,10 +14,23 @@ export function isSupabaseConfigured() {
 }
 
 export function siteUrl() {
-  return (
-    process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
-    "http://localhost:3000"
-  );
+  const configured = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+  if (configured) return configured;
+  // Vercel injects these automatically. Prefer the production domain so
+  // robots.txt, sitemap.xml, and OpenGraph URLs never fall back to localhost.
+  const production = process.env.VERCEL_PROJECT_PRODUCTION_URL?.replace(/\/$/, "");
+  if (production) return `https://${production}`;
+  const deployment = process.env.VERCEL_URL?.replace(/\/$/, "");
+  if (deployment) return `https://${deployment}`;
+  return "http://localhost:3000";
+}
+
+// Only allow redirects within the admin area (prevents open redirects via ?next=).
+export function safeAdminPath(value?: string | null) {
+  const path = typeof value === "string" ? value : "";
+  const isSafe =
+    (path === "/admin" || path.startsWith("/admin/")) && !path.startsWith("//");
+  return isSafe ? path : "/admin";
 }
 
 export function slugify(value: string) {

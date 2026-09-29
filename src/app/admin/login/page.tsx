@@ -1,14 +1,20 @@
 import type { Metadata } from "next";
 import { LoginForm } from "@/components/admin/LoginForm";
 import { Logo } from "@/components/ui/Logo";
-import { isSupabaseConfigured } from "@/lib/utils";
+import { isSupabaseConfigured, safeAdminPath } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Office sign in",
   robots: { index: false, follow: false },
 };
 
-export default function AdminLoginPage() {
+export default async function AdminLoginPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ next?: string }>;
+}) {
+  const { next } = await searchParams;
+
   return (
     <main className="flex flex-1 items-center justify-center px-4 py-16">
       <div className="w-full max-w-md rounded-lg border border-border bg-white p-8 shadow-sm">
@@ -19,7 +25,10 @@ export default function AdminLoginPage() {
           website content.
         </p>
         <div className="mt-6">
-          <LoginForm configured={isSupabaseConfigured()} />
+          <LoginForm
+            configured={isSupabaseConfigured()}
+            next={safeAdminPath(next)}
+          />
         </div>
       </div>
     </main>

@@ -79,7 +79,7 @@ export function PropertyForm({ property }: { property?: Property }) {
           const {
             data: { publicUrl },
           } = supabase.storage.from("property-images").getPublicUrl(path);
-          await addPropertyImage({
+          const saved = await addPropertyImage({
             propertyId: result.id,
             url: publicUrl,
             storagePath: path,
@@ -87,6 +87,15 @@ export function PropertyForm({ property }: { property?: Property }) {
             isPrimary: index === 0,
             sortOrder: index,
           });
+          if (!saved.ok) {
+            // Clean up the orphaned file so storage is not left with an image
+            // that has no database row.
+            await supabase.storage.from("property-images").remove([path]);
+            setError(
+              saved.error ?? "A photograph was uploaded but could not be saved.",
+            );
+            continue;
+          }
         }
       } catch (uploadError) {
         setPending(false);

@@ -7,6 +7,7 @@ import type { ActionResult, ListingType, PropertyStatus, PropertyType } from "@/
 import {
   parseOptionalNumber,
   parseOptionalText,
+  safeAdminPath,
   splitFeatures,
   uniqueSlug,
 } from "@/lib/utils";
@@ -98,6 +99,7 @@ function readPropertyFields(formData: FormData) {
 export async function signIn(_prev: ActionResult, formData: FormData): Promise<ActionResult> {
   const email = String(formData.get("email") ?? "").trim();
   const password = String(formData.get("password") ?? "");
+  const next = safeAdminPath(String(formData.get("next") ?? ""));
 
   if (!email || !password) {
     return { ok: false, error: "Email and password are required." };
@@ -119,7 +121,7 @@ export async function signIn(_prev: ActionResult, formData: FormData): Promise<A
     };
   }
 
-  redirect("/admin");
+  redirect(next);
 }
 
 export async function signOut() {
