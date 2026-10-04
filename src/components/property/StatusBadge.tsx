@@ -17,14 +17,14 @@ export function StatusBadge({
   if (!value) return null;
 
   const styles: Record<string, string> = {
-    available: "bg-brand-muted text-brand-dark",
-    sold: "bg-neutral-800 text-white",
-    rented: "bg-neutral-700 text-white",
-    under_offer: "bg-amber-100 text-amber-950",
-    unavailable: "bg-neutral-200 text-neutral-700",
-    sale: "bg-brand text-white",
-    rent: "bg-brand-dark text-white",
-    managed: "bg-emerald-950 text-white",
+    available: "bg-leaf-100/90 text-leaf-800",
+    sold: "bg-leaf-950/90 text-gold-100",
+    rented: "bg-leaf-800/90 text-white",
+    under_offer: "bg-gold-400/95 text-leaf-950",
+    unavailable: "bg-neutral-200/90 text-neutral-700",
+    sale: "bg-leaf-600/95 text-white",
+    rent: "bg-leaf-800/95 text-white",
+    managed: "bg-gold-500/95 text-leaf-950",
   };
 
   const label = status
@@ -36,8 +36,8 @@ export function StatusBadge({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium tracking-wide",
-        styles[value] ?? "bg-neutral-100 text-neutral-800",
+        "inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold tracking-wide shadow-sm backdrop-blur-sm",
+        styles[value] ?? "bg-white/90 text-neutral-800",
       )}
     >
       {label}
@@ -47,7 +47,7 @@ export function StatusBadge({
 
 export function TypeBadge({ type }: { type: PropertyType | string }) {
   return (
-    <span className="inline-flex items-center rounded-full bg-white/90 px-2.5 py-1 text-xs font-medium text-foreground">
+    <span className="inline-flex items-center rounded-full bg-white/90 px-2.5 py-1 text-xs font-semibold text-leaf-900 shadow-sm ring-1 ring-leaf-900/10 backdrop-blur-sm">
       {propertyTypeLabel(type)}
     </span>
   );

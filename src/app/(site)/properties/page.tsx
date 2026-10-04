@@ -40,8 +40,10 @@ export default async function PropertiesPage({
 
   return (
     <Container className="py-12 md:py-16">
-      <p className="text-sm uppercase tracking-[0.22em] text-brand">Listings</p>
-      <h1 className="mt-2 font-display text-4xl text-brand-dark md:text-5xl">
+      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-gold-600">
+        Listings
+      </p>
+      <h1 className="mt-2 font-display text-4xl text-leaf-900 md:text-5xl">
         {listingLabel}
       </h1>
       <p className="mt-4 max-w-2xl text-muted">

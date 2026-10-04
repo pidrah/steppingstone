@@ -6,6 +6,9 @@ import { useMemo } from "react";
 import { LISTING_TYPES, PROPERTY_TYPES } from "@/lib/constants";
 import type { PropertyFilters as Filters } from "@/lib/types";
 
+const field =
+  "w-full rounded-xl border border-leaf-900/15 bg-white px-3.5 py-2.5 text-sm shadow-sm transition focus:border-leaf-500 focus:ring-2 focus:ring-leaf-500/20";
+
 export function PropertyFilters({
   current,
   locations,
@@ -33,7 +36,7 @@ export function PropertyFilters({
 
   return (
     <form
-      className="rounded-lg border border-border bg-white p-4 shadow-sm md:p-5"
+      className="rounded-2xl border border-leaf-900/10 bg-white/90 p-4 shadow-soft backdrop-blur md:p-5"
       onSubmit={(event) => {
         event.preventDefault();
         apply(event.currentTarget);
@@ -48,8 +51,8 @@ export function PropertyFilters({
               href={tab.value === "all" ? "/properties" : `/properties?listing=${tab.value}`}
               className={
                 active
-                  ? "rounded-full bg-brand px-4 py-2 text-sm font-semibold text-white"
-                  : "rounded-full bg-brand-muted px-4 py-2 text-sm font-medium text-brand-dark hover:bg-brand/15"
+                  ? "rounded-full bg-linear-to-r from-leaf-600 to-leaf-700 px-4 py-2 text-sm font-semibold text-white shadow-sm"
+                  : "rounded-full bg-leaf-50 px-4 py-2 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100"
               }
             >
               {tab.label}
@@ -65,7 +68,7 @@ export function PropertyFilters({
             name="q"
             defaultValue={current.q ?? ""}
             placeholder="Title or area"
-            className="w-full rounded-md border border-border px-3 py-2"
+            className={field}
           />
         </label>
         <label className="block text-sm">
@@ -73,7 +76,7 @@ export function PropertyFilters({
           <select
             name="type"
             defaultValue={current.type ?? "all"}
-            className="w-full rounded-md border border-border px-3 py-2"
+            className={field}
           >
             <option value="all">Any type</option>
             {PROPERTY_TYPES.map((type) => (
@@ -89,7 +92,7 @@ export function PropertyFilters({
             <select
               name="location"
               defaultValue={current.location ?? ""}
-              className="w-full rounded-md border border-border px-3 py-2"
+              className={field}
             >
               <option value="">Any location</option>
               {locations.map((location) => (
@@ -103,7 +106,7 @@ export function PropertyFilters({
               name="location"
               defaultValue={current.location ?? ""}
               placeholder="e.g. Georgetown"
-              className="w-full rounded-md border border-border px-3 py-2"
+              className={field}
             />
           )}
         </label>
@@ -112,7 +115,7 @@ export function PropertyFilters({
           <select
             name="bedrooms"
             defaultValue={current.bedrooms ?? ""}
-            className="w-full rounded-md border border-border px-3 py-2"
+            className={field}
           >
             <option value="">Any</option>
             {[1, 2, 3, 4, 5].map((count) => (
@@ -130,7 +133,7 @@ export function PropertyFilters({
               type="number"
               min="0"
               defaultValue={current.minPrice ?? ""}
-              className="w-full rounded-md border border-border px-3 py-2"
+              className={field}
             />
           </label>
           <label className="block text-sm">
@@ -140,7 +143,7 @@ export function PropertyFilters({
               type="number"
               min="0"
               defaultValue={current.maxPrice ?? ""}
-              className="w-full rounded-md border border-border px-3 py-2"
+              className={field}
             />
           </label>
         </div>
@@ -149,13 +152,13 @@ export function PropertyFilters({
       <div className="mt-4 flex flex-wrap gap-3">
         <button
           type="submit"
-          className="rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-dark"
+          className="rounded-full bg-linear-to-r from-leaf-600 to-leaf-700 px-6 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:from-leaf-700 hover:to-leaf-800"
         >
           Apply filters
         </button>
         <Link
           href="/properties"
-          className="rounded-full border border-border px-5 py-2.5 text-sm font-medium hover:border-brand"
+          className="rounded-full border border-leaf-900/15 bg-white px-6 py-2.5 text-sm font-medium transition hover:border-gold-400 hover:text-leaf-900"
         >
           Clear
         </Link>

@@ -34,25 +34,33 @@ export default async function AboutPage() {
     <Container className="py-12 md:py-16">
       <div className="grid gap-10 lg:grid-cols-[280px_1fr] lg:items-start">
         <div>
-          <div className="relative mx-auto aspect-square w-56 overflow-hidden rounded-full bg-brand-muted lg:w-full">
-            {profile?.photo_url ? (
-              <Image
-                src={profile.photo_url}
-                alt={`${name}, ${title}`}
-                fill
-                className="object-cover"
-                unoptimized={!profile.photo_url.startsWith("http")}
-              />
-            ) : (
-              <div className="flex h-full items-center justify-center text-brand-dark/70">
-                Portrait coming soon
-              </div>
-            )}
+          <div className="relative mx-auto aspect-square w-56 lg:w-full lg:max-w-xs">
+            <div
+              aria-hidden="true"
+              className="absolute -inset-3 rounded-full border border-gold-400/50"
+            />
+            <div className="relative h-full w-full overflow-hidden rounded-full bg-leaf-100 shadow-lift ring-4 ring-white">
+              {profile?.photo_url ? (
+                <Image
+                  src={profile.photo_url}
+                  alt={`${name}, ${title}`}
+                  fill
+                  className="object-cover"
+                  unoptimized={!profile.photo_url.startsWith("http")}
+                />
+              ) : (
+                <div className="flex h-full items-center justify-center px-6 text-center text-leaf-900/60">
+                  Portrait coming soon
+                </div>
+              )}
+            </div>
           </div>
         </div>
         <div>
-          <p className="text-sm uppercase tracking-[0.22em] text-brand">{title}</p>
-          <h1 className="mt-2 font-display text-4xl text-brand-dark md:text-5xl">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-gold-600">
+            {title}
+          </p>
+          <h1 className="mt-2 font-display text-4xl text-leaf-900 md:text-5xl">
             {name}
           </h1>
           <p className="mt-4 text-muted">{COMPANY.addressSingleLine}</p>
@@ -61,7 +69,7 @@ export default async function AboutPage() {
             <div className="mt-10 space-y-8">
               {sections.map((section) => (
                 <section key={section.heading}>
-                  <h2 className="font-display text-2xl text-brand-dark">
+                  <h2 className="font-display text-2xl text-leaf-900">
                     {section.heading}
                   </h2>
                   <p className="mt-3 whitespace-pre-line leading-8 text-foreground/85">
@@ -71,8 +79,8 @@ export default async function AboutPage() {
               ))}
             </div>
           ) : (
-            <div className="mt-10 rounded-lg border border-dashed border-border bg-white px-6 py-10">
-              <p className="font-display text-2xl text-brand-dark">
+            <div className="mt-10 rounded-2xl border border-dashed border-leaf-300/70 bg-white px-6 py-10 shadow-soft">
+              <p className="font-display text-2xl text-leaf-900">
                 Professional profile coming soon.
               </p>
               <p className="mt-3 max-w-xl text-muted">
@@ -83,7 +91,7 @@ export default async function AboutPage() {
           )}
 
           <div className="mt-12 max-w-xl">
-            <h2 className="font-display text-2xl text-brand-dark">Get in touch</h2>
+            <h2 className="font-display text-2xl text-leaf-900">Get in touch</h2>
             <div className="mt-5">
               <ContactActions />
             </div>

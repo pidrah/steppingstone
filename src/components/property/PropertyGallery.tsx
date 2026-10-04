@@ -26,7 +26,7 @@ export function PropertyGallery({
 
   if (!ordered.length) {
     return (
-      <div className="flex aspect-[4/3] items-center justify-center rounded-lg bg-brand-muted text-brand-dark">
+      <div className="flex aspect-[4/3] items-center justify-center rounded-2xl border border-dashed border-leaf-300/70 bg-leaf-50 px-6 text-center text-leaf-900/70">
         No photographs have been added for this property yet.
       </div>
     );
@@ -34,7 +34,7 @@ export function PropertyGallery({
 
   return (
     <div>
-      <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-neutral-200">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-leaf-100 shadow-soft">
         <Image
           src={current.url}
           alt={current.alt_text || title}
@@ -55,8 +55,10 @@ export function PropertyGallery({
                 aria-label={`Show photograph ${index + 1} of ${ordered.length}`}
                 aria-current={index === active}
                 className={cn(
-                  "relative aspect-square w-full overflow-hidden rounded-md border-2",
-                  index === active ? "border-brand" : "border-transparent",
+                  "relative aspect-square w-full overflow-hidden rounded-xl border-2 transition",
+                  index === active
+                    ? "border-leaf-600 ring-2 ring-leaf-600/20"
+                    : "border-transparent opacity-80 hover:opacity-100",
                 )}
               >
                 <Image

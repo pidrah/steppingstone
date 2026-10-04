@@ -9,17 +9,20 @@ import "./globals.css";
 // builds never depend on a live Google Fonts request — Google's css2 API
 // sometimes returns extensionless /l/font URLs that break builds
 // (see vercel/next.js#99114).
-const sourceSans = localFont({
-  src: "./fonts/source-sans-3-variable.woff2",
-  weight: "200 900",
-  variable: "--font-source-sans",
+//
+// Fraunces — modern editorial serif for headings (optical sizing, weight 300–700).
+// Manrope — clean geometric sans for body text (weight 200–800).
+const manrope = localFont({
+  src: "./fonts/manrope-variable.woff2",
+  weight: "200 800",
+  variable: "--font-manrope",
   display: "swap",
 });
 
-const cormorant = localFont({
-  src: "./fonts/cormorant-garamond-variable.woff2",
+const fraunces = localFont({
+  src: "./fonts/fraunces-variable.woff2",
   weight: "300 700",
-  variable: "--font-cormorant",
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -68,7 +71,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html
       lang="en"
-      className={`${sourceSans.variable} ${cormorant.variable} h-full antialiased`}
+      className={`${manrope.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans">{children}</body>
     </html>

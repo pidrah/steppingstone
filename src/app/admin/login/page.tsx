@@ -17,9 +17,10 @@ export default async function AdminLoginPage({
 
   return (
     <main className="flex flex-1 items-center justify-center px-4 py-16">
-      <div className="w-full max-w-md rounded-lg border border-border bg-white p-8 shadow-sm">
+      <div className="relative w-full max-w-md overflow-hidden rounded-2xl border border-leaf-900/10 bg-white p-8 shadow-lift">
+        <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-brand-bar" />
         <Logo href="/" />
-        <h1 className="mt-8 font-display text-3xl text-brand-dark">Office sign in</h1>
+        <h1 className="mt-8 font-display text-3xl text-leaf-900">Office sign in</h1>
         <p className="mt-2 text-sm text-muted">
           This area is for Steppingstone Realty staff to manage listings and
           website content.

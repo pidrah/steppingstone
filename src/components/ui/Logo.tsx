@@ -30,7 +30,7 @@ export function Mark({ className }: { className?: string }) {
       />
       <path
         d="M26 54V38.5h12V54"
-        stroke="currentColor"
+        stroke="var(--gold)"
         strokeWidth="2.2"
         strokeLinejoin="round"
       />

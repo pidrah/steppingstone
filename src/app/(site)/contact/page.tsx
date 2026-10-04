@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactActions } from "@/components/property/ContactActions";
+import { PanelBackdrop } from "@/components/site/AmbientBackground";
 import { Container } from "@/components/ui/Container";
 import { COMPANY } from "@/lib/constants";
 
@@ -12,8 +13,10 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <Container className="py-12 md:py-16">
-      <p className="text-sm uppercase tracking-[0.22em] text-brand">Contact</p>
-      <h1 className="mt-2 font-display text-4xl text-brand-dark md:text-5xl">
+      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-gold-600">
+        Contact
+      </p>
+      <h1 className="mt-2 font-display text-4xl text-leaf-900 md:text-5xl">
         Speak with the office
       </h1>
       <p className="mt-4 max-w-2xl text-lg leading-8 text-muted">
@@ -22,8 +25,8 @@ export default function ContactPage() {
       </p>
 
       <div className="mt-10 grid gap-8 lg:grid-cols-2">
-        <div className="rounded-lg border border-border bg-white p-6 md:p-8">
-          <h2 className="font-display text-2xl text-brand-dark">Office</h2>
+        <div className="rounded-2xl border border-leaf-900/10 bg-white p-6 shadow-soft md:p-8">
+          <h2 className="font-display text-2xl text-leaf-900">Office</h2>
           <p className="mt-4 leading-8">
             {COMPANY.principal}
             <br />
@@ -70,13 +73,16 @@ export default function ContactPage() {
             </div>
           </dl>
         </div>
-        <div className="rounded-lg bg-brand px-6 py-8 text-white md:p-8">
-          <h2 className="font-display text-3xl">Start a conversation</h2>
-          <p className="mt-3 text-white/85">
-            On a phone, the call and WhatsApp buttons open directly.
-          </p>
-          <div className="mt-8">
-            <ContactActions inverted />
+        <div className="relative overflow-hidden rounded-3xl text-white shadow-lift">
+          <PanelBackdrop idPrefix="contact-panel" />
+          <div className="relative px-6 py-8 md:p-8">
+            <h2 className="font-display text-3xl">Start a conversation</h2>
+            <p className="mt-3 text-white/85">
+              On a phone, the call and WhatsApp buttons open directly.
+            </p>
+            <div className="mt-8">
+              <ContactActions inverted />
+            </div>
           </div>
         </div>
       </div>
