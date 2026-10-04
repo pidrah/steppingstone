@@ -13,8 +13,8 @@ export const COMPANY = {
   phoneDisplay: "+592 653-5888",
   phoneTel: "+5926535888",
   email: "steppingstonerealtygy@gmail.com",
-  facebookHandle: "@steppingstonerealty",
-  facebookUrl: "https://www.facebook.com/steppingstonerealty",
+  facebookHandle: "@steppingstonerealtygy",
+  facebookUrl: "https://www.facebook.com/steppingstonerealtygy",
   whatsappUrl: "https://wa.me/5926535888",
 } as const;
 

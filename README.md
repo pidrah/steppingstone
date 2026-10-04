@@ -168,7 +168,7 @@ After the first deploy:
 - 56 Brickdam & Austin Place, Georgetown, Guyana, South America
 - Phone: +592 653-5888
 - Email: steppingstonerealtygy@gmail.com
-- Facebook: [@steppingstonerealty](https://www.facebook.com/steppingstonerealty)
+- Facebook: [@steppingstonerealtygy](https://www.facebook.com/steppingstonerealtygy)
 - WhatsApp: [wa.me/5926535888](https://wa.me/5926535888)
 
 ## Security notes
