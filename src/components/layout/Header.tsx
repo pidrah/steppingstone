@@ -10,11 +10,19 @@ import { cn } from "@/lib/utils";
 export function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const [lastPathname, setLastPathname] = useState(pathname);
+
+  // Close the mobile menu whenever the route changes (e.g. back/forward).
+  // Adjusting state during render is the recommended pattern for this.
+  if (pathname !== lastPathname) {
+    setLastPathname(pathname);
+    setOpen(false);
+  }
 
   return (
     <>
       <div aria-hidden="true" className="bg-brand-bar h-[3px] w-full" />
-      <header className="sticky top-0 z-40 border-b border-leaf-900/10 bg-background/85 backdrop-blur-xl">
+      <header className="header-blur sticky top-0 z-40 border-b border-leaf-900/10 bg-background/85">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
           <Logo compact />
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
@@ -90,28 +98,43 @@ export function Header() {
         </div>
         {open ? (
           <div id="mobile-nav" className="border-t border-leaf-900/10 bg-background lg:hidden">
-            <nav className="mx-auto flex max-w-6xl flex-col px-4 py-3" aria-label="Mobile">
-              {NAV_LINKS.map((link, index) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="anim-fade-up border-b border-leaf-900/5 py-3 text-base font-medium text-foreground"
-                  style={{ animationDelay: `${index * 40}ms` }}
-                >
-                  {link.label}
-                </Link>
-              ))}
+            <nav
+              className="mx-auto max-h-[calc(100dvh_-_4rem)] max-w-6xl overflow-y-auto px-4 py-3"
+              aria-label="Mobile"
+            >
+              {NAV_LINKS.map((link, index) => {
+                const active =
+                  link.href === "/" ? pathname === "/" : pathname.startsWith(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={cn(
+                      "anim-fade-up border-b border-leaf-900/5 py-3.5 text-base font-medium",
+                      active ? "text-leaf-800" : "text-foreground",
+                    )}
+                    style={{ animationDelay: `${index * 40}ms` }}
+                  >
+                    {link.label}
+                    {active ? (
+                      <span
+                        aria-hidden="true"
+                        className="ml-2 inline-block h-1.5 w-1.5 rounded-full bg-gold-400 align-middle"
+                      />
+                    ) : null}
+                  </Link>
+                );
+              })}
               <a
                 href={`tel:${COMPANY.phoneTel}`}
-                className="anim-fade-up py-3 text-base font-semibold text-leaf-700"
+                className="anim-fade-up block py-3.5 text-base font-semibold text-leaf-700"
                 style={{ animationDelay: `${NAV_LINKS.length * 40}ms` }}
               >
                 Call {COMPANY.phoneDisplay}
               </a>
               <a
                 href={COMPANY.whatsappUrl}
-                className="anim-fade-up pb-3 text-base font-semibold text-leaf-700"
+                className="anim-fade-up block pb-3.5 text-base font-semibold text-leaf-700"
                 target="_blank"
                 rel="noreferrer"
                 style={{ animationDelay: `${(NAV_LINKS.length + 1) * 40}ms` }}

@@ -44,7 +44,7 @@ export function LoginForm({
           name="email"
           required
           autoComplete="username"
-          className="w-full rounded-md border border-border px-3 py-2"
+          className="w-full rounded-xl border border-leaf-900/15 bg-white px-3.5 py-2.5 text-base shadow-sm transition focus:border-leaf-500 focus:ring-2 focus:ring-leaf-500/20 sm:text-sm"
         />
       </label>
       <label className="block text-sm">
@@ -54,13 +54,13 @@ export function LoginForm({
           name="password"
           required
           autoComplete="current-password"
-          className="w-full rounded-md border border-border px-3 py-2"
+          className="w-full rounded-xl border border-leaf-900/15 bg-white px-3.5 py-2.5 text-base shadow-sm transition focus:border-leaf-500 focus:ring-2 focus:ring-leaf-500/20 sm:text-sm"
         />
       </label>
       <button
         type="submit"
         disabled={pending}
-        className="w-full rounded-full bg-brand px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-dark disabled:opacity-60"
+        className="w-full rounded-full bg-linear-to-r from-leaf-600 to-leaf-700 px-4 py-3 text-base font-semibold text-white shadow-soft transition hover:from-leaf-700 hover:to-leaf-800 disabled:opacity-60 sm:text-sm"
       >
         {pending ? "Signing in…" : "Sign in"}
       </button>

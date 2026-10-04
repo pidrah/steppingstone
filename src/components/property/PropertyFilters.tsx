@@ -7,7 +7,7 @@ import { LISTING_TYPES, PROPERTY_TYPES } from "@/lib/constants";
 import type { PropertyFilters as Filters } from "@/lib/types";
 
 const field =
-  "w-full rounded-xl border border-leaf-900/15 bg-white px-3.5 py-2.5 text-sm shadow-sm transition focus:border-leaf-500 focus:ring-2 focus:ring-leaf-500/20";
+  "w-full rounded-xl border border-leaf-900/15 bg-white px-3.5 py-2.5 text-base shadow-sm transition focus:border-leaf-500 focus:ring-2 focus:ring-leaf-500/20 sm:text-sm";
 
 export function PropertyFilters({
   current,
@@ -51,8 +51,8 @@ export function PropertyFilters({
               href={tab.value === "all" ? "/properties" : `/properties?listing=${tab.value}`}
               className={
                 active
-                  ? "rounded-full bg-linear-to-r from-leaf-600 to-leaf-700 px-4 py-2 text-sm font-semibold text-white shadow-sm"
-                  : "rounded-full bg-leaf-50 px-4 py-2 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100"
+                  ? "rounded-full bg-linear-to-r from-leaf-600 to-leaf-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm"
+                  : "rounded-full bg-leaf-50 px-4 py-2.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100"
               }
             >
               {tab.label}

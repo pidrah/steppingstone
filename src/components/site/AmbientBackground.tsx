@@ -79,10 +79,10 @@ export function AmbientBackground({ className }: { className?: string }) {
       )}
     >
       <div className="absolute inset-0 bg-cream-wash" />
-      <div className="anim-drift absolute -left-44 -top-44 h-[34rem] w-[34rem] rounded-full bg-leaf-200/50 blur-3xl" />
-      <div className="anim-drift-alt absolute -right-52 top-1/4 h-[38rem] w-[38rem] rounded-full bg-gold-100/70 blur-3xl" />
+      <div className="anim-drift absolute -left-44 -top-44 h-80 w-80 rounded-full bg-leaf-200/50 blur-3xl sm:h-[34rem] sm:w-[34rem]" />
+      <div className="anim-drift-alt absolute -right-52 top-1/4 h-96 w-96 rounded-full bg-gold-100/70 blur-3xl sm:h-[38rem] sm:w-[38rem]" />
       <div
-        className="anim-drift absolute -bottom-56 left-[18%] h-[36rem] w-[36rem] rounded-full bg-leaf-100/80 blur-3xl"
+        className="anim-drift absolute -bottom-56 left-[18%] h-80 w-80 rounded-full bg-leaf-100/80 blur-3xl sm:h-[36rem] sm:w-[36rem]"
         style={{ animationDelay: "-9s" }}
       />
       <LeafGlyph
@@ -127,8 +127,8 @@ export function PanelBackdrop({
       )}
     >
       <div className="absolute inset-0 bg-leaf-depth" />
-      <div className="anim-drift absolute -right-24 -top-32 h-[28rem] w-[28rem] rounded-full bg-leaf-400/20 blur-3xl" />
-      <div className="anim-drift-alt absolute -bottom-44 -left-24 h-[26rem] w-[26rem] rounded-full bg-gold-500/15 blur-3xl" />
+      <div className="anim-drift absolute -right-24 -top-32 h-72 w-72 rounded-full bg-leaf-400/20 blur-3xl sm:h-[28rem] sm:w-[28rem]" />
+      <div className="anim-drift-alt absolute -bottom-44 -left-24 h-64 w-64 rounded-full bg-gold-500/15 blur-3xl sm:h-[26rem] sm:w-[26rem]" />
       <LeafGlyph
         id={`${idPrefix}-leaf-a`}
         tone="gold"

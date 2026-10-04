@@ -48,11 +48,11 @@ export default async function HomePage() {
     <>
       <section className="relative overflow-hidden bg-leaf-900 text-white">
         <PanelBackdrop idPrefix="home-hero" />
-        <Container className="relative py-20 md:py-28">
+        <Container className="relative py-16 md:py-28">
           <p className="text-sm font-semibold uppercase tracking-[0.32em] text-gold-300">
             Georgetown, Guyana
           </p>
-          <h1 className="mt-5 max-w-3xl font-display text-5xl leading-[1.05] md:text-6xl">
+          <h1 className="mt-5 max-w-3xl font-display text-4xl leading-[1.05] sm:text-5xl md:text-6xl">
             Steppingstone <span className="text-gold-gradient">Realty</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-white/85 md:text-xl">

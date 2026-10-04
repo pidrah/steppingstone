@@ -62,6 +62,10 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* clip (not hidden) so position: sticky keeps working */
+  overflow-x: clip;
 }
 
 body {
@@ -97,6 +101,24 @@ button:focus-visible,
 a:focus-visible {
   outline: 2px solid var(--brand);
   outline-offset: 2px;
+}
+
+/* Avoid the gray tap flash on touch devices */
+a,
+button,
+[role="button"],
+input,
+select,
+textarea,
+label,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Header backdrop blur with the -webkit- prefix older iOS needs */
+.header-blur {
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
 }
 
 /* Subtle themed scrollbar */

@@ -90,7 +90,7 @@ export function PropertyCard({ property }: { property: Property }) {
               {property.description}
             </p>
           ) : null}
-          <div className="flex items-center justify-between gap-3 border-t border-leaf-900/5 pt-3">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-leaf-900/5 pt-3">
             {facts.length ? (
               <p className="text-sm text-foreground/75">{facts.join(" · ")}</p>
             ) : null}
