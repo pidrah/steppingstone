@@ -6,13 +6,13 @@ import { Container } from "@/components/ui/Container";
 
 export default function NotFound() {
   return (
-    <>
+    <div className="theme-dim min-h-dvh bg-background text-foreground">
       <AmbientBackground />
       <Header />
       <main className="flex-1">
         <Container className="py-24 text-center">
           <LeafGlyph tone="gold" className="mx-auto h-14 w-14 rotate-[24deg] opacity-90" />
-          <h1 className="mt-6 font-display text-4xl text-leaf-900">Page not found</h1>
+          <h1 className="mt-6 font-display text-4xl text-white">Page not found</h1>
           <p className="mx-auto mt-4 max-w-md text-muted">
             That page does not exist. It may have been moved, or the property is
             no longer listed.
@@ -26,6 +26,6 @@ export default function NotFound() {
         </Container>
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

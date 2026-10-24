@@ -6,6 +6,7 @@
    ------------------------------------------------------------------ */
 
 :root {
+  /* Light tokens kept for the office (admin) dashboard */
   --background: #f7f8f2;
   --foreground: #1b2a20;
   --brand: #2f7d4f;
@@ -18,7 +19,32 @@
   --gold-soft: #e6cb8d;
 }
 
+/* ------------------------------------------------------------------
+   Dim (dark) scope — the public website.
+   Deep green-black "Georgetown nights" surfaces with the leaf-green
+   and gold brand accents kept for the logo, links, and highlights.
+   ------------------------------------------------------------------ */
+.theme-dim {
+  --background: #0a110c;
+  --foreground: #edf3ec;
+  --brand: #6fbc8b;
+  --brand-dark: #3d8a57;
+  --brand-muted: #14251b;
+  --card: #111b14;
+  --muted: #9db1a2;
+  --border: #223329;
+}
+
 @theme {
+  /* Ink (dim surface) scale */
+  --color-ink-950: #060b08;
+  --color-ink-900: #0a110c;
+  --color-ink-850: #0d150f;
+  --color-ink-800: #111b14;
+  --color-ink-700: #16221a;
+  --color-ink-600: #1d2d22;
+  --color-ink-500: #27392c;
+
   /* Leaf green scale */
   --color-leaf-50: #f0f7f1;
   --color-leaf-100: #dcebdf;
@@ -69,7 +95,9 @@ html {
 }
 
 body {
-  background: var(--background);
+  /* Public site base: deep "Georgetown night" green-black. The office
+     (admin) dashboard paints its own light surfaces on top of this. */
+  background: #0a110c;
   color: var(--foreground);
   font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }
@@ -92,6 +120,25 @@ select,
 textarea {
   background: white;
   color: var(--foreground);
+}
+
+/* Dark surfaces for form controls inside the dim (public) scope */
+.theme-dim input,
+.theme-dim select,
+.theme-dim textarea {
+  background: var(--color-ink-700);
+  color: var(--foreground);
+  border-color: #2c4032;
+}
+
+.theme-dim input::placeholder,
+.theme-dim textarea::placeholder {
+  color: #7d9083;
+}
+
+.theme-dim select option {
+  background: #16221a;
+  color: #edf3ec;
 }
 
 input:focus-visible,
@@ -130,28 +177,39 @@ summary {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #bcd9c3;
-  border: 3px solid var(--background);
+  background: #27392c;
+  border: 3px solid #0a110c;
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #8fc09d;
+  background: #3d8a57;
 }
 
 /* --- Decorative surfaces --- */
 
 .bg-leaf-depth {
-  background: linear-gradient(135deg, #205033 0%, #17402c 48%, #0d2a1c 100%);
+  background: linear-gradient(160deg, #12241a 0%, #0c1a12 55%, #060d09 100%);
 }
 
-.bg-cream-wash {
+/* Dim page wash: moonlit green-black with a faint gold horizon */
+.bg-dim-wash {
   background:
-    radial-gradient(110% 70% at 50% -10%, #edf4ec 0%, rgba(247, 248, 242, 0) 60%),
-    var(--background);
+    radial-gradient(120% 55% at 78% 0%, rgba(109, 188, 139, 0.07) 0%, rgba(10, 17, 12, 0) 55%),
+    radial-gradient(90% 40% at 12% 4%, rgba(218, 181, 102, 0.05) 0%, rgba(10, 17, 12, 0) 60%),
+    #0a110c;
 }
 
 .bg-brand-bar {
   background: linear-gradient(90deg, #17402c 0%, #2f7d4f 40%, #dab566 100%);
+}
+
+/* Sleek dim panel used for cards on the public site */
+.panel-dim {
+  background: linear-gradient(180deg, #131e16 0%, #101911 100%);
+  border: 1px solid rgba(237, 243, 236, 0.09);
+  box-shadow:
+    0 1px 0 rgba(237, 243, 236, 0.04) inset,
+    0 18px 40px -22px rgb(0 0 0 / 0.65);
 }
 
 .gold-hairline {

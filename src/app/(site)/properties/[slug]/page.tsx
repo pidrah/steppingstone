@@ -42,7 +42,7 @@ function CheckIcon() {
     <svg
       viewBox="0 0 24 24"
       aria-hidden="true"
-      className="mt-1 h-4 w-4 shrink-0 text-gold-500"
+      className="mt-1 h-4 w-4 shrink-0 text-gold-400"
       fill="none"
       stroke="currentColor"
       strokeWidth="2.4"
@@ -85,7 +85,7 @@ export default async function PropertyDetailPage({ params }: Props) {
     <Container className="py-10 md:py-14">
       <Link
         href="/properties"
-        className="group inline-flex items-center gap-1.5 text-sm font-semibold text-leaf-700 transition-colors hover:text-leaf-900"
+        className="group inline-flex items-center gap-1.5 text-sm font-semibold text-leaf-300 transition-colors hover:text-white"
       >
         <svg
           viewBox="0 0 24 24"
@@ -116,7 +116,7 @@ export default async function PropertyDetailPage({ params }: Props) {
               </span>
             ) : null}
           </div>
-          <h1 className="mt-4 font-display text-4xl text-leaf-900">
+          <h1 className="mt-4 font-display text-4xl text-white">
             {property.title}
           </h1>
           {property.location ? (
@@ -124,7 +124,7 @@ export default async function PropertyDetailPage({ params }: Props) {
               <svg
                 viewBox="0 0 24 24"
                 aria-hidden="true"
-                className="h-4 w-4 shrink-0 text-gold-500"
+                className="h-4 w-4 shrink-0 text-gold-400"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -138,7 +138,7 @@ export default async function PropertyDetailPage({ params }: Props) {
             </p>
           ) : null}
           {price ? (
-            <p className="mt-4 text-2xl font-bold text-leaf-800">{price}</p>
+            <p className="mt-4 text-2xl font-bold text-leaf-200">{price}</p>
           ) : null}
           {hasText(property.address) ? (
             <p className="mt-3 text-sm text-foreground/80">{property.address}</p>
@@ -147,9 +147,9 @@ export default async function PropertyDetailPage({ params }: Props) {
             {facts.map((fact) => (
               <div
                 key={fact.label}
-                className="rounded-xl border border-leaf-900/10 bg-white p-4 shadow-sm"
+                className="panel-dim rounded-xl p-4"
               >
-                <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-600">
+                <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-300">
                   {fact.label}
                 </dt>
                 <dd className="mt-1.5 font-semibold text-foreground">
@@ -170,7 +170,7 @@ export default async function PropertyDetailPage({ params }: Props) {
 
       {hasText(property.description) ? (
         <section className="mt-12 max-w-3xl">
-          <h2 className="font-display text-3xl text-leaf-900">
+          <h2 className="font-display text-3xl text-white">
             About this property
           </h2>
           <p className="mt-4 whitespace-pre-line text-lg leading-8 text-foreground/85">
@@ -181,7 +181,7 @@ export default async function PropertyDetailPage({ params }: Props) {
 
       {property.features?.length ? (
         <section className="mt-10 max-w-3xl">
-          <h2 className="font-display text-3xl text-leaf-900">Features</h2>
+          <h2 className="font-display text-3xl text-white">Features</h2>
           <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
             {property.features.map((feature) => (
               <li key={feature} className="flex gap-2.5">

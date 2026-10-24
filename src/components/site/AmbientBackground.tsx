@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
+import { GuyanaSkyline } from "@/components/site/GuyanaSkyline";
 
 type LeafTone = "leaf" | "gold" | "white";
 
@@ -65,9 +66,10 @@ export function LeafGlyph({
 }
 
 /**
- * Page-wide ambient background: a soft botanical wash with slowly drifting
- * green and gold blooms and gently floating leaves. Purely decorative —
- * motion is disabled for users who prefer reduced motion.
+ * Page-wide ambient background for the dim (public) theme: a moonlit
+ * green-black wash, a faint moon, a scatter of still stars, and the static
+ * Georgetown skyline anchored to the bottom of the viewport. Purely
+ * decorative; nothing is animated so it stays calm and cheap on mobile.
  */
 export function AmbientBackground({ className }: { className?: string }) {
   return (
@@ -78,36 +80,44 @@ export function AmbientBackground({ className }: { className?: string }) {
         className,
       )}
     >
-      <div className="absolute inset-0 bg-cream-wash" />
-      <div className="anim-drift absolute -left-44 -top-44 h-80 w-80 rounded-full bg-leaf-200/50 blur-3xl sm:h-[34rem] sm:w-[34rem]" />
-      <div className="anim-drift-alt absolute -right-52 top-1/4 h-96 w-96 rounded-full bg-gold-100/70 blur-3xl sm:h-[38rem] sm:w-[38rem]" />
+      <div className="absolute inset-0 bg-dim-wash" />
+
+      {/* Moon with a soft halo */}
       <div
-        className="anim-drift absolute -bottom-56 left-[18%] h-80 w-80 rounded-full bg-leaf-100/80 blur-3xl sm:h-[36rem] sm:w-[36rem]"
-        style={{ animationDelay: "-9s" }}
+        className="absolute right-[10%] top-[6%] h-16 w-16 rounded-full bg-[#e9f1e7] opacity-[0.16] sm:h-24 sm:w-24"
+        style={{ boxShadow: "0 0 90px 34px rgba(233, 241, 231, 0.07)" }}
       />
-      <LeafGlyph
-        id="ambient-leaf-a"
-        tone="leaf"
-        className="anim-float absolute left-[5%] top-[16%] h-28 w-28 rotate-[24deg] opacity-[0.10]"
+
+      {/* Still stars */}
+      <div className="absolute left-[8%] top-[12%] h-px w-px rounded-full bg-white/40" />
+      <div className="absolute left-[22%] top-[6%] h-px w-px rounded-full bg-white/30" />
+      <div className="absolute left-[38%] top-[15%] h-[2px] w-[2px] rounded-full bg-white/25" />
+      <div className="absolute left-[55%] top-[9%] h-px w-px rounded-full bg-white/35" />
+      <div className="absolute left-[70%] top-[18%] h-px w-px rounded-full bg-white/25" />
+      <div className="absolute left-[86%] top-[26%] h-[2px] w-[2px] rounded-full bg-white/20" />
+      <div className="absolute left-[46%] top-[28%] h-px w-px rounded-full bg-white/20" />
+      <div className="absolute left-[12%] top-[34%] h-px w-px rounded-full bg-white/20" />
+
+      {/* Static Georgetown skyline — hazy bridge & blocks behind, landmarks in front */}
+      <GuyanaSkyline
+        variant="far"
+        className="absolute bottom-0 left-0 h-[24vh] min-h-40 w-full opacity-60 sm:h-[26vh]"
       />
-      <LeafGlyph
-        id="ambient-leaf-b"
-        tone="gold"
-        className="anim-float absolute right-[7%] top-[52%] h-24 w-24 -rotate-[28deg] opacity-[0.12]"
-        style={{ animationDuration: "19s", animationDelay: "-5s" }}
+      <GuyanaSkyline
+        variant="near"
+        className="absolute bottom-0 left-0 h-[26vh] min-h-44 w-full sm:h-[30vh]"
       />
-      <LeafGlyph
-        id="ambient-leaf-c"
-        tone="leaf"
-        className="anim-float absolute bottom-[6%] left-[42%] h-16 w-16 rotate-[160deg] opacity-[0.09]"
-        style={{ animationDuration: "14s", animationDelay: "-2s" }}
-      />
+
+      {/* Demerara river sheen along the very bottom */}
+      <div className="absolute inset-x-0 bottom-0 h-16 bg-linear-to-b from-transparent via-[#050a07]/30 to-[#040805]/80" />
     </div>
   );
 }
 
 /**
- * Richer animated backdrop for deep-green panels (heroes, CTA bands).
+ * Richer backdrop for deep-green panels (heroes, CTA bands): the leaf-depth
+ * gradient, a faint gold horizon glow, two brand leaf glyphs, and the
+ * Georgetown skyline silhouette along the bottom edge. Static — no motion.
  * Place inside a `relative overflow-hidden` parent and give content a
  * `relative` wrapper so it paints above the backdrop.
  */
@@ -127,24 +137,30 @@ export function PanelBackdrop({
       )}
     >
       <div className="absolute inset-0 bg-leaf-depth" />
-      <div className="anim-drift absolute -right-24 -top-32 h-72 w-72 rounded-full bg-leaf-400/20 blur-3xl sm:h-[28rem] sm:w-[28rem]" />
-      <div className="anim-drift-alt absolute -bottom-44 -left-24 h-64 w-64 rounded-full bg-gold-500/15 blur-3xl sm:h-[26rem] sm:w-[26rem]" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(90% 60% at 80% 0%, rgba(109,188,139,0.10) 0%, rgba(6,13,9,0) 55%), radial-gradient(70% 45% at 10% 8%, rgba(218,181,102,0.08) 0%, rgba(6,13,9,0) 60%)",
+        }}
+      />
+      <GuyanaSkyline
+        variant="far"
+        className="absolute bottom-0 left-0 h-[46%] w-full opacity-50"
+      />
+      <GuyanaSkyline
+        variant="near"
+        className="absolute bottom-0 left-0 h-[54%] w-full"
+      />
       <LeafGlyph
         id={`${idPrefix}-leaf-a`}
         tone="gold"
-        className="anim-float absolute right-[10%] top-[10%] h-32 w-32 rotate-[26deg] opacity-20"
+        className="absolute right-[8%] top-[8%] h-24 w-24 rotate-[26deg] opacity-[0.14]"
       />
       <LeafGlyph
         id={`${idPrefix}-leaf-b`}
         tone="white"
-        className="anim-float absolute bottom-[6%] left-[5%] h-24 w-24 -rotate-[22deg] opacity-10"
-        style={{ animationDuration: "18s", animationDelay: "-6s" }}
-      />
-      <LeafGlyph
-        id={`${idPrefix}-leaf-c`}
-        tone="gold"
-        className="anim-float absolute left-[38%] top-[52%] h-14 w-14 rotate-[150deg] opacity-15"
-        style={{ animationDuration: "13s", animationDelay: "-3s" }}
+        className="absolute left-[4%] top-[16%] h-16 w-16 -rotate-[22deg] opacity-[0.08]"
       />
       <div className="absolute inset-x-0 bottom-0 h-px gold-hairline" />
     </div>

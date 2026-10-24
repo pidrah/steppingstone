@@ -16,12 +16,12 @@ export function EmptyState({
   return (
     <div
       className={cn(
-        "rounded-2xl border border-dashed border-leaf-300/80 bg-white/70 px-6 py-14 text-center shadow-soft",
+        "panel-dim rounded-2xl border-dashed border-white/20 px-6 py-14 text-center",
         className,
       )}
     >
       <LeafGlyph tone="gold" className="mx-auto h-10 w-10 rotate-[24deg] opacity-90" />
-      <p className="mt-5 font-display text-2xl text-leaf-900">{title}</p>
+      <p className="mt-5 font-display text-2xl text-white">{title}</p>
       {description ? (
         <p className="mx-auto mt-3 max-w-md text-muted">{description}</p>
       ) : null}

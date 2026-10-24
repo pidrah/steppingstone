@@ -18,9 +18,9 @@ export function PropertyCard({ property }: { property: Property }) {
   ].filter(Boolean);
 
   return (
-    <article className="group relative overflow-hidden rounded-2xl border border-leaf-900/10 bg-white shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-lift">
+    <article className="panel-dim group relative overflow-hidden rounded-2xl transition duration-300 hover:-translate-y-1 hover:border-leaf-700/60 hover:shadow-lift">
       <Link href={`/properties/${property.slug}`} className="block">
-        <div className="relative aspect-[4/3] overflow-hidden bg-leaf-100">
+        <div className="relative aspect-[4/3] overflow-hidden bg-ink-700">
           {image ? (
             <Image
               src={image.url}
@@ -31,13 +31,13 @@ export function PropertyCard({ property }: { property: Property }) {
               unoptimized={!isRemote(image.url)}
             />
           ) : (
-            <div className="flex h-full items-center justify-center text-sm font-medium text-leaf-900/60">
+            <div className="flex h-full items-center justify-center text-sm font-medium text-white/50">
               Photograph coming soon
             </div>
           )}
           <div
             aria-hidden="true"
-            className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-leaf-950/60 to-transparent"
+            className="absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-ink-950/70 to-transparent"
           />
           <div className="absolute left-3 top-3 flex flex-wrap gap-2">
             <StatusBadge listingType={property.listing_type} />
@@ -62,7 +62,7 @@ export function PropertyCard({ property }: { property: Property }) {
         </div>
         <div className="space-y-3 p-5">
           <div className="flex items-start justify-between gap-3">
-            <h3 className="font-display text-xl leading-snug text-leaf-900">
+            <h3 className="font-display text-xl leading-snug text-white">
               {property.title}
             </h3>
             <TypeBadge type={property.property_type} />
@@ -72,7 +72,7 @@ export function PropertyCard({ property }: { property: Property }) {
               <svg
                 viewBox="0 0 24 24"
                 aria-hidden="true"
-                className="h-4 w-4 shrink-0 text-gold-500"
+                className="h-4 w-4 shrink-0 text-gold-400"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
@@ -90,16 +90,16 @@ export function PropertyCard({ property }: { property: Property }) {
               {property.description}
             </p>
           ) : null}
-          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-leaf-900/5 pt-3">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-white/5 pt-3">
             {facts.length ? (
               <p className="text-sm text-foreground/75">{facts.join(" · ")}</p>
             ) : null}
-            <span className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-leaf-700 transition-colors group-hover:text-leaf-900">
+            <span className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-leaf-300 transition-colors group-hover:text-white">
               View
               <svg
                 viewBox="0 0 24 24"
                 aria-hidden="true"
-                className="h-4 w-4 text-gold-500 transition-transform duration-300 group-hover:translate-x-1"
+                className="h-4 w-4 text-gold-400 transition-transform duration-300 group-hover:translate-x-1"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2.2"

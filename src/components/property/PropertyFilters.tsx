@@ -7,7 +7,7 @@ import { LISTING_TYPES, PROPERTY_TYPES } from "@/lib/constants";
 import type { PropertyFilters as Filters } from "@/lib/types";
 
 const field =
-  "w-full rounded-xl border border-leaf-900/15 bg-white px-3.5 py-2.5 text-base shadow-sm transition focus:border-leaf-500 focus:ring-2 focus:ring-leaf-500/20 sm:text-sm";
+  "w-full rounded-xl border border-white/12 bg-ink-700 px-3.5 py-2.5 text-base text-foreground shadow-sm transition placeholder:text-white/40 focus:border-leaf-500 focus:ring-2 focus:ring-leaf-500/20 sm:text-sm";
 
 export function PropertyFilters({
   current,
@@ -36,7 +36,7 @@ export function PropertyFilters({
 
   return (
     <form
-      className="rounded-2xl border border-leaf-900/10 bg-white/90 p-4 shadow-soft backdrop-blur md:p-5"
+      className="panel-dim rounded-2xl p-4 backdrop-blur md:p-5"
       onSubmit={(event) => {
         event.preventDefault();
         apply(event.currentTarget);
@@ -51,8 +51,8 @@ export function PropertyFilters({
               href={tab.value === "all" ? "/properties" : `/properties?listing=${tab.value}`}
               className={
                 active
-                  ? "rounded-full bg-linear-to-r from-leaf-600 to-leaf-700 px-4 py-2.5 text-sm font-semibold text-white shadow-sm"
-                  : "rounded-full bg-leaf-50 px-4 py-2.5 text-sm font-medium text-leaf-800 transition hover:bg-leaf-100"
+                  ? "rounded-full bg-linear-to-r from-leaf-500 to-leaf-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm"
+                  : "rounded-full bg-white/5 px-4 py-2.5 text-sm font-medium text-white/80 ring-1 ring-white/10 transition hover:bg-white/10 hover:text-white"
               }
             >
               {tab.label}
@@ -63,7 +63,7 @@ export function PropertyFilters({
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         <label className="block text-sm">
-          <span className="mb-1 block font-medium">Keyword</span>
+          <span className="mb-1 block font-medium text-white/80">Keyword</span>
           <input
             name="q"
             defaultValue={current.q ?? ""}
@@ -72,7 +72,7 @@ export function PropertyFilters({
           />
         </label>
         <label className="block text-sm">
-          <span className="mb-1 block font-medium">Property type</span>
+          <span className="mb-1 block font-medium text-white/80">Property type</span>
           <select
             name="type"
             defaultValue={current.type ?? "all"}
@@ -87,7 +87,7 @@ export function PropertyFilters({
           </select>
         </label>
         <label className="block text-sm">
-          <span className="mb-1 block font-medium">Location</span>
+          <span className="mb-1 block font-medium text-white/80">Location</span>
           {locations.length ? (
             <select
               name="location"
@@ -111,7 +111,7 @@ export function PropertyFilters({
           )}
         </label>
         <label className="block text-sm">
-          <span className="mb-1 block font-medium">Min. bedrooms</span>
+          <span className="mb-1 block font-medium text-white/80">Min. bedrooms</span>
           <select
             name="bedrooms"
             defaultValue={current.bedrooms ?? ""}
@@ -127,7 +127,7 @@ export function PropertyFilters({
         </label>
         <div className="grid grid-cols-2 gap-2">
           <label className="block text-sm">
-            <span className="mb-1 block font-medium">Min price</span>
+            <span className="mb-1 block font-medium text-white/80">Min price</span>
             <input
               name="minPrice"
               type="number"
@@ -137,7 +137,7 @@ export function PropertyFilters({
             />
           </label>
           <label className="block text-sm">
-            <span className="mb-1 block font-medium">Max price</span>
+            <span className="mb-1 block font-medium text-white/80">Max price</span>
             <input
               name="maxPrice"
               type="number"
@@ -152,13 +152,13 @@ export function PropertyFilters({
       <div className="mt-4 flex flex-wrap gap-3">
         <button
           type="submit"
-          className="rounded-full bg-linear-to-r from-leaf-600 to-leaf-700 px-6 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:from-leaf-700 hover:to-leaf-800"
+          className="rounded-full bg-linear-to-r from-leaf-500 to-leaf-600 px-6 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:from-leaf-400 hover:to-leaf-500"
         >
           Apply filters
         </button>
         <Link
           href="/properties"
-          className="rounded-full border border-leaf-900/15 bg-white px-6 py-2.5 text-sm font-medium transition hover:border-gold-400 hover:text-leaf-900"
+          className="rounded-full border border-white/15 bg-white/5 px-6 py-2.5 text-sm font-medium text-white/85 transition hover:border-gold-400 hover:text-white"
         >
           Clear
         </Link>

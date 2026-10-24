@@ -83,7 +83,7 @@ export function ContactActions({
     : `${button} bg-linear-to-r from-leaf-600 to-leaf-700 text-white shadow-soft hover:from-leaf-700 hover:to-leaf-800 focus-visible:outline-brand`;
   const secondaryClass = inverted
     ? `${button} border border-white/40 bg-transparent text-white hover:bg-white/10 focus-visible:outline-white`
-    : `${button} border border-leaf-900/15 bg-white text-foreground shadow-sm hover:border-gold-400 hover:text-leaf-900 focus-visible:outline-brand`;
+    : `${button} border border-white/15 bg-white/5 text-white/85 shadow-sm hover:border-gold-400 hover:text-white focus-visible:outline-brand`;
 
   return (
     <div className={classes}>

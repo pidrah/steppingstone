@@ -5,7 +5,7 @@ import { LeafGlyph } from "@/components/site/AmbientBackground";
 
 export function Footer() {
   return (
-    <footer className="relative mt-auto overflow-hidden bg-leaf-950 text-white">
+    <footer className="relative mt-auto overflow-hidden bg-ink-950 text-white">
       <div aria-hidden="true" className="gold-hairline absolute inset-x-0 top-0 h-px" />
       <div
         aria-hidden="true"
