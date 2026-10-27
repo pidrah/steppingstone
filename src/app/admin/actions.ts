@@ -33,6 +33,17 @@ function revalidatePublic() {
   revalidatePath("/admin/content");
 }
 
+async function markPropertyUpdated(
+  supabase: Awaited<ReturnType<typeof createClient>>,
+  propertyId: string,
+) {
+  const { error } = await supabase
+    .from("properties")
+    .update({ updated_at: new Date().toISOString() })
+    .eq("id", propertyId);
+  return error?.message ?? null;
+}
+
 const LISTING_VALUES = new Set(["sale", "rent", "managed"]);
 const STATUS_VALUES = new Set([
   "available",
@@ -167,7 +178,10 @@ export async function updateProperty(
     await requireUser();
     const fields = readPropertyFields(formData);
     const supabase = await createClient();
-    const { error } = await supabase.from("properties").update(fields).eq("id", id);
+    const { error } = await supabase
+      .from("properties")
+      .update({ ...fields, updated_at: new Date().toISOString() })
+      .eq("id", id);
 
     if (error) {
       return { ok: false, error: error.message };
@@ -278,6 +292,11 @@ export async function addPropertyImage(input: {
       return { ok: false, error: error.message };
     }
 
+    const propertyError = await markPropertyUpdated(supabase, input.propertyId);
+    if (propertyError) {
+      return { ok: false, error: propertyError };
+    }
+
     revalidatePublic();
     revalidatePath(`/admin/properties/${input.propertyId}`);
     return { ok: true };
@@ -315,6 +334,11 @@ export async function deletePropertyImage(
       return { ok: false, error: error.message };
     }
 
+    const propertyError = await markPropertyUpdated(supabase, propertyId);
+    if (propertyError) {
+      return { ok: false, error: propertyError };
+    }
+
     revalidatePublic();
     revalidatePath(`/admin/properties/${propertyId}`);
     return { ok: true };
@@ -346,6 +370,11 @@ export async function setPrimaryImage(
       return { ok: false, error: error.message };
     }
 
+    const propertyError = await markPropertyUpdated(supabase, propertyId);
+    if (propertyError) {
+      return { ok: false, error: propertyError };
+    }
+
     revalidatePublic();
     revalidatePath(`/admin/properties/${propertyId}`);
     return { ok: true };
@@ -374,6 +403,10 @@ export async function reorderPropertyImages(
       if (error) {
         return { ok: false, error: error.message };
       }
+    }
+    const propertyError = await markPropertyUpdated(supabase, propertyId);
+    if (propertyError) {
+      return { ok: false, error: propertyError };
     }
     revalidatePublic();
     revalidatePath(`/admin/properties/${propertyId}`);

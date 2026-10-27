@@ -52,7 +52,7 @@ export const getPublishedProperties = cache(async function getPublishedPropertie
       .from("properties")
       .select(PROPERTY_SELECT)
       .eq("is_published", true)
-      .order("is_featured", { ascending: false })
+      .order("updated_at", { ascending: false })
       .order("created_at", { ascending: false });
 
     if (filters.listing && filters.listing !== "all") {
@@ -141,6 +141,7 @@ export const getAdminProperties = cache(async function getAdminProperties(): Pro
     const { data, error } = await supabase
       .from("properties")
       .select(PROPERTY_SELECT)
+      .order("updated_at", { ascending: false })
       .order("created_at", { ascending: false });
 
     if (error) {
