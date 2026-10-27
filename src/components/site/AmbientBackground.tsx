@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { GuyanaSkyline } from "@/components/site/GuyanaSkyline";
 import {
@@ -119,9 +120,11 @@ export function AmbientBackground({ className }: { className?: string }) {
  */
 export function PanelBackdrop({
   idPrefix,
+  imageSrc,
   className,
 }: {
   idPrefix: string;
+  imageSrc?: string;
   className?: string;
 }) {
   return (
@@ -132,7 +135,27 @@ export function PanelBackdrop({
         className,
       )}
     >
-      <div className="absolute inset-0 bg-leaf-depth" />
+      {imageSrc ? (
+        <Image
+          src={imageSrc}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-top"
+        />
+      ) : null}
+      <div
+        className={cn("absolute inset-0", !imageSrc && "bg-leaf-depth")}
+        style={
+          imageSrc
+            ? {
+                background:
+                  "linear-gradient(90deg, rgba(13,42,28,0.92) 0%, rgba(23,64,44,0.78) 48%, rgba(13,42,28,0.56) 100%), linear-gradient(0deg, rgba(13,42,28,0.34), transparent 60%)",
+              }
+            : undefined
+        }
+      />
       <div
         className="absolute inset-0"
         style={{

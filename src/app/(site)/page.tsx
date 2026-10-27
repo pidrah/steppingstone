@@ -47,7 +47,7 @@ export default async function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden bg-leaf-900 text-white">
-        <PanelBackdrop idPrefix="home-hero" />
+        <PanelBackdrop idPrefix="home-hero" imageSrc="/landmarks/cathedral.jpg" />
         <Container className="relative py-16 md:py-28">
           <p className="text-sm font-semibold uppercase tracking-[0.32em] text-gold-300">
             Georgetown, Guyana
@@ -85,6 +85,14 @@ export default async function HomePage() {
             <span>Property care & management</span>
           </p>
         </Container>
+        <a
+          href="https://commons.wikimedia.org/wiki/File:20191121_Guyana_0048_Georgetown_sRGB_(49295795336).jpg"
+          target="_blank"
+          rel="noreferrer"
+          className="absolute bottom-3 right-4 z-10 rounded-full bg-leaf-950/65 px-3 py-1.5 text-[10px] font-medium text-white/75 backdrop-blur-sm transition hover:text-white sm:right-6"
+        >
+          St. George’s Cathedral · Dan Lundberg · CC BY-SA 2.0
+        </a>
       </section>
 
       <section>
