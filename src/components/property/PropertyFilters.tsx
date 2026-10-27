@@ -9,6 +9,26 @@ import type { PropertyFilters as Filters } from "@/lib/types";
 const field =
   "w-full rounded-xl border border-border bg-white px-3.5 py-2.5 text-base text-foreground shadow-sm transition placeholder:text-muted/70 focus:border-leaf-600 focus:ring-2 focus:ring-leaf-600/20 sm:text-sm";
 
+const listingFilterKeys = [
+  "q",
+  "type",
+  "location",
+  "bedrooms",
+  "minPrice",
+  "maxPrice",
+] as const;
+
+function listingHref(listing: string, current: Filters) {
+  const params = new URLSearchParams();
+  for (const key of listingFilterKeys) {
+    const value = current[key];
+    if (value?.trim()) params.set(key, value.trim());
+  }
+  if (listing !== "all") params.set("listing", listing);
+  const query = params.toString();
+  return query ? `/properties?${query}` : "/properties";
+}
+
 export function PropertyFilters({
   current,
   locations,
@@ -48,7 +68,7 @@ export function PropertyFilters({
           return (
             <Link
               key={tab.value}
-              href={tab.value === "all" ? "/properties" : `/properties?listing=${tab.value}`}
+              href={listingHref(tab.value, current)}
               aria-current={active ? "page" : undefined}
               className={
                 active

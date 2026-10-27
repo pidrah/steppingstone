@@ -113,7 +113,7 @@ export function Header() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "anim-fade-up border-b border-leaf-900/10 py-3.5 text-base font-medium",
+                      "anim-fade-up block border-b border-leaf-900/10 py-3.5 text-base font-medium",
                       active ? "text-leaf-900" : "text-leaf-900/75",
                     )}
                     style={{ animationDelay: `${index * 40}ms` }}

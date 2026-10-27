@@ -54,6 +54,9 @@ export default async function PropertiesPage({
         <PropertyFilters current={params} locations={locations} />
       </div>
       <div className="mt-8">
+        <p className="mb-4 text-sm text-muted" role="status">
+          {properties.length} {properties.length === 1 ? "property" : "properties"} found
+        </p>
         <PropertyGrid
           properties={properties}
           emptyTitle="No properties currently available."
