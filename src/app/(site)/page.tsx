@@ -90,7 +90,7 @@ export default async function HomePage() {
       <section>
         <Container className="grid gap-10 py-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-start lg:py-20">
           <div>
-            <h2 className="font-display text-3xl text-white md:text-4xl">
+            <h2 className="font-display text-3xl text-foreground md:text-4xl">
               A local real estate office in Georgetown
             </h2>
             <p className="mt-5 max-w-2xl text-lg leading-8 text-foreground/85">
@@ -109,7 +109,7 @@ export default async function HomePage() {
           </div>
           <aside className="relative overflow-hidden panel-dim rounded-2xl p-6">
             <div aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-brand-bar" />
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold-300">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-leaf-700">
               Office
             </p>
             <p className="mt-3 font-medium leading-7">
@@ -121,7 +121,7 @@ export default async function HomePage() {
             </p>
             <a
               href={`tel:${COMPANY.phoneTel}`}
-              className="mt-4 inline-block font-semibold text-leaf-300 transition-colors hover:text-white"
+              className="mt-4 inline-block font-semibold text-leaf-700 transition-colors hover:text-leaf-900"
             >
               {COMPANY.phoneDisplay}
             </a>
@@ -173,10 +173,10 @@ export default async function HomePage() {
       <section className="py-16 lg:py-20">
         <Container className="grid gap-10 lg:grid-cols-2">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold-300">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-leaf-700">
               For landlords
             </p>
-            <h2 className="mt-3 font-display text-3xl text-white md:text-4xl">
+            <h2 className="mt-3 font-display text-3xl text-foreground md:text-4xl">
               Property care and management
             </h2>
             <p className="mt-5 text-lg leading-8 text-foreground/85">
@@ -204,10 +204,10 @@ export default async function HomePage() {
               aria-hidden="true"
               className="absolute inset-x-0 top-0 h-1 bg-brand-bar"
             />
-            <p className="font-display text-3xl text-white">
+            <p className="font-display text-3xl text-foreground">
               {profile?.name ?? COMPANY.principal}
             </p>
-            <p className="mt-1.5 text-sm font-semibold uppercase tracking-[0.18em] text-gold-300">
+            <p className="mt-1.5 text-sm font-semibold uppercase tracking-[0.18em] text-leaf-700">
               {profile?.title ?? COMPANY.principalTitle}
             </p>
             <p className="mt-5 leading-7 text-foreground/85">
@@ -217,7 +217,7 @@ export default async function HomePage() {
             </p>
             <Link
               href="/about"
-              className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-leaf-300 transition-colors hover:text-white"
+              className="group mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-leaf-700 transition-colors hover:text-leaf-900"
             >
               About the Principal Realtor
               <svg
@@ -272,10 +272,10 @@ function SectionHeading({
 }) {
   return (
     <div className="mb-8 flex items-end justify-between gap-4">
-      <h2 className="font-display text-3xl text-white">{title}</h2>
+      <h2 className="font-display text-3xl text-foreground">{title}</h2>
       <Link
         href={href}
-        className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-leaf-300 transition-colors hover:text-white"
+        className="group inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-leaf-700 transition-colors hover:text-leaf-900"
       >
         {linkLabel}
         <svg

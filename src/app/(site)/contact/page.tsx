@@ -13,10 +13,10 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <Container className="py-12 md:py-16">
-      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-gold-300">
+      <p className="text-sm font-semibold uppercase tracking-[0.22em] text-leaf-700">
         Contact
       </p>
-      <h1 className="mt-2 font-display text-4xl text-white md:text-5xl">
+      <h1 className="mt-2 font-display text-4xl text-foreground md:text-5xl">
         Speak with the office
       </h1>
       <p className="mt-4 max-w-2xl text-lg leading-8 text-muted">
@@ -26,7 +26,7 @@ export default function ContactPage() {
 
       <div className="mt-10 grid gap-8 lg:grid-cols-2">
         <div className="panel-dim rounded-2xl p-6 md:p-8">
-          <h2 className="font-display text-2xl text-white">Office</h2>
+          <h2 className="font-display text-2xl text-foreground">Office</h2>
           <p className="mt-4 leading-8">
             {COMPANY.principal}
             <br />
@@ -45,7 +45,7 @@ export default function ContactPage() {
             <div>
               <dt className="text-muted">Phone</dt>
               <dd>
-                <a className="font-semibold text-leaf-300 transition-colors hover:text-white" href={`tel:${COMPANY.phoneTel}`}>
+                <a className="font-semibold text-leaf-700 transition-colors hover:text-leaf-900" href={`tel:${COMPANY.phoneTel}`}>
                   {COMPANY.phoneDisplay}
                 </a>
               </dd>
@@ -53,7 +53,7 @@ export default function ContactPage() {
             <div>
               <dt className="text-muted">Email</dt>
               <dd>
-                <a className="font-semibold text-leaf-300 transition-colors hover:text-white" href={`mailto:${COMPANY.email}`}>
+                <a className="font-semibold text-leaf-700 transition-colors hover:text-leaf-900" href={`mailto:${COMPANY.email}`}>
                   {COMPANY.email}
                 </a>
               </dd>
@@ -62,7 +62,7 @@ export default function ContactPage() {
               <dt className="text-muted">Facebook</dt>
               <dd>
                 <a
-                  className="font-semibold text-leaf-300 transition-colors hover:text-white"
+                  className="font-semibold text-leaf-700 transition-colors hover:text-leaf-900"
                   href={COMPANY.facebookUrl}
                   target="_blank"
                   rel="noreferrer"

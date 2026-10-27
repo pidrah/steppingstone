@@ -20,7 +20,7 @@ export function PropertyCard({ property }: { property: Property }) {
   return (
     <article className="panel-dim group relative overflow-hidden rounded-2xl transition duration-300 hover:-translate-y-1 hover:border-leaf-700/60 hover:shadow-lift">
       <Link href={`/properties/${property.slug}`} className="block">
-        <div className="relative aspect-[4/3] overflow-hidden bg-ink-700">
+        <div className="relative aspect-[4/3] overflow-hidden bg-leaf-100">
           {image ? (
             <Image
               src={image.url}
@@ -31,7 +31,7 @@ export function PropertyCard({ property }: { property: Property }) {
               unoptimized={!isRemote(image.url)}
             />
           ) : (
-            <div className="flex h-full items-center justify-center text-sm font-medium text-white/50">
+            <div className="flex h-full items-center justify-center bg-leaf-50 text-sm font-medium text-muted">
               Photograph coming soon
             </div>
           )}
@@ -62,7 +62,7 @@ export function PropertyCard({ property }: { property: Property }) {
         </div>
         <div className="space-y-3 p-5">
           <div className="flex items-start justify-between gap-3">
-            <h3 className="font-display text-xl leading-snug text-white">
+            <h3 className="font-display text-xl leading-snug text-foreground">
               {property.title}
             </h3>
             <TypeBadge type={property.property_type} />
@@ -90,11 +90,11 @@ export function PropertyCard({ property }: { property: Property }) {
               {property.description}
             </p>
           ) : null}
-          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-white/5 pt-3">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-t border-border pt-3">
             {facts.length ? (
               <p className="text-sm text-foreground/75">{facts.join(" · ")}</p>
             ) : null}
-            <span className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-leaf-300 transition-colors group-hover:text-white">
+            <span className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-leaf-700 transition-colors group-hover:text-leaf-900">
               View
               <svg
                 viewBox="0 0 24 24"

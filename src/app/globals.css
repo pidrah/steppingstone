@@ -19,20 +19,17 @@
   --gold-soft: #e6cb8d;
 }
 
-/* ------------------------------------------------------------------
-   Dim (dark) scope — the public website.
-   Deep green-black "Georgetown nights" surfaces with the leaf-green
-   and gold brand accents kept for the logo, links, and highlights.
-   ------------------------------------------------------------------ */
+/* Public site theme scope. Keep its botanical green palette aligned with
+   the light surfaces used throughout the listings and editorial pages. */
 .theme-dim {
-  --background: #0a110c;
-  --foreground: #edf3ec;
-  --brand: #6fbc8b;
-  --brand-dark: #3d8a57;
-  --brand-muted: #14251b;
-  --card: #111b14;
-  --muted: #9db1a2;
-  --border: #223329;
+  --background: #f4f7f2;
+  --foreground: #1b2a20;
+  --brand: #2f7d4f;
+  --brand-dark: #17402c;
+  --brand-muted: #e7f3ea;
+  --card: #ffffff;
+  --muted: #5c6b61;
+  --border: #d7e3d9;
 }
 
 @theme {
@@ -95,9 +92,7 @@ html {
 }
 
 body {
-  /* Public site base: deep "Georgetown night" green-black. The office
-     (admin) dashboard paints its own light surfaces on top of this. */
-  background: #0a110c;
+  background: #f4f7f2;
   color: var(--foreground);
   font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }
@@ -122,13 +117,13 @@ textarea {
   color: var(--foreground);
 }
 
-/* Dark surfaces for form controls inside the dim (public) scope */
+/* Consistent controls for the public site theme */
 .theme-dim input,
 .theme-dim select,
 .theme-dim textarea {
-  background: var(--color-ink-700);
+  background: #ffffff;
   color: var(--foreground);
-  border-color: #2c4032;
+  border-color: #d7e3d9;
 }
 
 .theme-dim input::placeholder,
@@ -137,8 +132,8 @@ textarea {
 }
 
 .theme-dim select option {
-  background: #16221a;
-  color: #edf3ec;
+  background: #ffffff;
+  color: #1b2a20;
 }
 
 input:focus-visible,
@@ -177,8 +172,8 @@ summary {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27392c;
-  border: 3px solid #0a110c;
+  background: #bcd9c3;
+  border: 3px solid #f4f7f2;
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -191,7 +186,7 @@ summary {
   background: linear-gradient(160deg, #12241a 0%, #0c1a12 55%, #060d09 100%);
 }
 
-/* Dim page wash: moonlit green-black with a faint gold horizon */
+/* Optional deep green wash for branded hero panels */
 .bg-dim-wash {
   background:
     radial-gradient(120% 55% at 78% 0%, rgba(109, 188, 139, 0.07) 0%, rgba(10, 17, 12, 0) 55%),
@@ -203,13 +198,15 @@ summary {
   background: linear-gradient(90deg, #17402c 0%, #2f7d4f 40%, #dab566 100%);
 }
 
-/* Sleek dim panel used for cards on the public site */
+/* Soft translucent panel used for cards and grouped content */
 .panel-dim {
-  background: linear-gradient(180deg, #131e16 0%, #101911 100%);
-  border: 1px solid rgba(237, 243, 236, 0.09);
+  background: rgb(255 255 255 / 0.82);
+  border: 1px solid rgb(47 125 79 / 0.12);
   box-shadow:
-    0 1px 0 rgba(237, 243, 236, 0.04) inset,
-    0 18px 40px -22px rgb(0 0 0 / 0.65);
+    0 1px 0 rgb(255 255 255 / 0.8) inset,
+    0 18px 40px -24px rgb(23 64 44 / 0.28);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .gold-hairline {
@@ -296,7 +293,50 @@ summary {
 }
 
 .anim-fade-up {
-  animation: ss-fade-up 0.6s ease-out both;
+  animation: ss-fade-up 0.7s ease-out both;
+}
+
+@keyframes ss-landmark {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -22px, 0);
+  }
+}
+
+@keyframes ss-landmark-alt {
+  0%,
+  100% {
+    transform: translate3d(0, 8px, 0);
+  }
+  50% {
+    transform: translate3d(16px, -14px, 0);
+  }
+}
+
+@keyframes ss-skyline {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.landmark-float {
+  animation: ss-landmark 18s ease-in-out infinite;
+}
+
+.landmark-drift {
+  animation: ss-landmark-alt 24s ease-in-out infinite;
+}
+
+.skyline-track {
+  display: flex;
+  width: 200%;
+  animation: ss-skyline 90s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -307,6 +347,9 @@ summary {
   .anim-drift-alt,
   .anim-float,
   .anim-fade-up,
+  .landmark-float,
+  .landmark-drift,
+  .skyline-track,
   .text-gold-gradient {
     animation: none;
   }

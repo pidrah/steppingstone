@@ -1,6 +1,14 @@
 import type { CSSProperties } from "react";
 import { cn } from "@/lib/utils";
 import { GuyanaSkyline } from "@/components/site/GuyanaSkyline";
+import {
+  CathedralSpire,
+  CityHall,
+  IndependenceArch,
+  ParliamentDome,
+  StabroekTower,
+  UmanaYana,
+} from "@/components/site/Landmarks";
 
 type LeafTone = "leaf" | "gold" | "white";
 
@@ -66,50 +74,38 @@ export function LeafGlyph({
 }
 
 /**
- * Page-wide ambient background for the dim (public) theme: a moonlit
- * green-black wash, a faint moon, a scatter of still stars, and the static
- * Georgetown skyline anchored to the bottom of the viewport. Purely
- * decorative; nothing is animated so it stays calm and cheap on mobile.
+ * Page-wide wash for the public site: cream paper, translucent Georgetown
+ * landmarks drifting slowly, and a low skyline that pans along the bottom.
  */
 export function AmbientBackground({ className }: { className?: string }) {
   return (
     <div
       aria-hidden="true"
       className={cn(
-        "pointer-events-none fixed inset-0 -z-10 overflow-hidden",
+        "pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#f4f7f2]",
         className,
       )}
     >
-      <div className="absolute inset-0 bg-dim-wash" />
-
-      {/* Moon with a soft halo */}
       <div
-        className="absolute right-[10%] top-[6%] h-16 w-16 rounded-full bg-[#e9f1e7] opacity-[0.16] sm:h-24 sm:w-24"
-        style={{ boxShadow: "0 0 90px 34px rgba(233, 241, 231, 0.07)" }}
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(70% 40% at 10% 0%, rgba(47,125,79,0.08), transparent 60%), radial-gradient(50% 30% at 90% 10%, rgba(47,125,79,0.06), transparent 55%)",
+        }}
       />
+      <CathedralSpire className="landmark-float absolute -left-8 top-[8%] h-[46vh] w-auto opacity-[0.13]" />
+      <StabroekTower className="landmark-drift absolute -right-4 top-[6%] h-[40vh] w-auto opacity-[0.12] [animation-delay:-6s]" />
+      <UmanaYana className="landmark-float absolute left-[8%] top-[58%] h-40 w-auto opacity-[0.1] [animation-delay:-3s] sm:h-52" />
+      <ParliamentDome className="landmark-drift absolute right-[6%] top-[46%] hidden h-36 w-auto opacity-[0.11] [animation-delay:-9s] md:block" />
+      <CityHall className="landmark-float absolute left-[42%] top-[22%] hidden h-44 w-auto opacity-[0.08] [animation-delay:-4s] lg:block" />
+      <IndependenceArch className="landmark-drift absolute bottom-[18%] right-[18%] hidden h-28 w-auto opacity-[0.1] [animation-delay:-7s] md:block" />
 
-      {/* Still stars */}
-      <div className="absolute left-[8%] top-[12%] h-px w-px rounded-full bg-white/40" />
-      <div className="absolute left-[22%] top-[6%] h-px w-px rounded-full bg-white/30" />
-      <div className="absolute left-[38%] top-[15%] h-[2px] w-[2px] rounded-full bg-white/25" />
-      <div className="absolute left-[55%] top-[9%] h-px w-px rounded-full bg-white/35" />
-      <div className="absolute left-[70%] top-[18%] h-px w-px rounded-full bg-white/25" />
-      <div className="absolute left-[86%] top-[26%] h-[2px] w-[2px] rounded-full bg-white/20" />
-      <div className="absolute left-[46%] top-[28%] h-px w-px rounded-full bg-white/20" />
-      <div className="absolute left-[12%] top-[34%] h-px w-px rounded-full bg-white/20" />
-
-      {/* Static Georgetown skyline — hazy bridge & blocks behind, landmarks in front */}
-      <GuyanaSkyline
-        variant="far"
-        className="absolute bottom-0 left-0 h-[24vh] min-h-40 w-full opacity-60 sm:h-[26vh]"
-      />
-      <GuyanaSkyline
-        variant="near"
-        className="absolute bottom-0 left-0 h-[26vh] min-h-44 w-full sm:h-[30vh]"
-      />
-
-      {/* Demerara river sheen along the very bottom */}
-      <div className="absolute inset-x-0 bottom-0 h-16 bg-linear-to-b from-transparent via-[#050a07]/30 to-[#040805]/80" />
+      <div className="absolute inset-x-0 bottom-0 overflow-hidden text-leaf-800 opacity-[0.16]">
+        <div className="skyline-track">
+          <GuyanaSkyline variant="near" className="h-[22vh] min-h-36 w-1/2" />
+          <GuyanaSkyline variant="near" className="h-[22vh] min-h-36 w-1/2" />
+        </div>
+      </div>
     </div>
   );
 }
@@ -144,14 +140,14 @@ export function PanelBackdrop({
             "radial-gradient(90% 60% at 80% 0%, rgba(109,188,139,0.10) 0%, rgba(6,13,9,0) 55%), radial-gradient(70% 45% at 10% 8%, rgba(218,181,102,0.08) 0%, rgba(6,13,9,0) 60%)",
         }}
       />
-      <GuyanaSkyline
-        variant="far"
-        className="absolute bottom-0 left-0 h-[46%] w-full opacity-50"
-      />
-      <GuyanaSkyline
-        variant="near"
-        className="absolute bottom-0 left-0 h-[54%] w-full"
-      />
+      <div className="absolute inset-x-0 bottom-0 overflow-hidden text-white/35">
+        <div className="skyline-track">
+          <GuyanaSkyline variant="near" className="h-full max-h-56 w-1/2" />
+          <GuyanaSkyline variant="near" className="h-full max-h-56 w-1/2" />
+        </div>
+      </div>
+      <CathedralSpire className="landmark-float absolute -left-6 bottom-0 h-[70%] w-auto text-white opacity-25" />
+      <StabroekTower className="landmark-drift absolute right-[6%] bottom-0 h-[78%] w-auto text-white opacity-20 [animation-delay:-5s]" />
       <LeafGlyph
         id={`${idPrefix}-leaf-a`}
         tone="gold"

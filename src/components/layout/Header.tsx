@@ -22,9 +22,9 @@ export function Header() {
   return (
     <>
       <div aria-hidden="true" className="bg-brand-bar h-[3px] w-full" />
-      <header className="header-blur sticky top-0 z-40 border-b border-white/10 bg-[#0a110c]/80">
+      <header className="header-blur sticky top-0 z-40 border-b border-leaf-900/10 bg-white/80">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
-          <Logo compact inverted />
+          <Logo compact />
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
             {NAV_LINKS.map((link) => {
               const active =
@@ -36,8 +36,8 @@ export function Header() {
                   className={cn(
                     "group relative text-sm font-medium transition-colors",
                     active
-                      ? "text-white"
-                      : "text-white/70 hover:text-white",
+                      ? "text-leaf-900"
+                      : "text-leaf-900/70 hover:text-leaf-800",
                   )}
                 >
                   {link.label}
@@ -55,20 +55,20 @@ export function Header() {
           <div className="hidden items-center gap-4 lg:flex">
             <a
               href={`tel:${COMPANY.phoneTel}`}
-              className="text-sm font-semibold text-leaf-300 transition-colors hover:text-white"
+              className="text-sm font-semibold text-leaf-700 transition-colors hover:text-leaf-900"
             >
               {COMPANY.phoneDisplay}
             </a>
             <Link
               href="/contact"
-              className="rounded-full bg-linear-to-r from-gold-400 to-gold-500 px-5 py-2.5 text-sm font-semibold text-ink-950 shadow-soft transition hover:from-gold-300 hover:to-gold-400"
+              className="rounded-full bg-leaf-700 px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition hover:bg-leaf-800"
             >
               Enquire
             </Link>
           </div>
           <button
             type="button"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/15 transition-colors hover:bg-white/5 lg:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-leaf-900/15 transition-colors hover:bg-leaf-50 lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-nav"
             onClick={() => setOpen((value) => !value)}
@@ -77,19 +77,19 @@ export function Header() {
             <span className="flex flex-col gap-1.5">
               <span
                 className={cn(
-                  "block h-0.5 w-5 bg-white transition",
+                  "block h-0.5 w-5 bg-leaf-900 transition",
                   open && "translate-y-2 rotate-45",
                 )}
               />
               <span
                 className={cn(
-                  "block h-0.5 w-5 bg-white transition",
+                  "block h-0.5 w-5 bg-leaf-900 transition",
                   open && "opacity-0",
                 )}
               />
               <span
                 className={cn(
-                  "block h-0.5 w-5 bg-white transition",
+                  "block h-0.5 w-5 bg-leaf-900 transition",
                   open && "-translate-y-2 -rotate-45",
                 )}
               />
@@ -99,7 +99,7 @@ export function Header() {
         {open ? (
           <div
             id="mobile-nav"
-            className="header-blur border-t border-white/10 bg-[#0a110c]/95 lg:hidden"
+            className="header-blur border-t border-leaf-900/10 bg-white/95 lg:hidden"
           >
             <nav
               className="mx-auto max-h-[calc(100dvh_-_4rem)] max-w-6xl overflow-y-auto px-4 py-3"
@@ -113,8 +113,8 @@ export function Header() {
                     key={link.href}
                     href={link.href}
                     className={cn(
-                      "anim-fade-up border-b border-white/5 py-3.5 text-base font-medium",
-                      active ? "text-white" : "text-white/80",
+                      "anim-fade-up border-b border-leaf-900/10 py-3.5 text-base font-medium",
+                      active ? "text-leaf-900" : "text-leaf-900/75",
                     )}
                     style={{ animationDelay: `${index * 40}ms` }}
                   >
@@ -122,7 +122,7 @@ export function Header() {
                     {active ? (
                       <span
                         aria-hidden="true"
-                        className="ml-2 inline-block h-1.5 w-1.5 rounded-full bg-gold-400 align-middle"
+                        className="ml-2 inline-block h-1.5 w-1.5 rounded-full bg-leaf-600 align-middle"
                       />
                     ) : null}
                   </Link>
@@ -130,14 +130,14 @@ export function Header() {
               })}
               <a
                 href={`tel:${COMPANY.phoneTel}`}
-                className="anim-fade-up block py-3.5 text-base font-semibold text-leaf-300"
+                className="anim-fade-up block py-3.5 text-base font-semibold text-leaf-700"
                 style={{ animationDelay: `${NAV_LINKS.length * 40}ms` }}
               >
                 Call {COMPANY.phoneDisplay}
               </a>
               <a
                 href={COMPANY.whatsappUrl}
-                className="anim-fade-up block pb-3.5 text-base font-semibold text-leaf-300"
+                className="anim-fade-up block pb-3.5 text-base font-semibold text-leaf-700"
                 target="_blank"
                 rel="noreferrer"
                 style={{ animationDelay: `${(NAV_LINKS.length + 1) * 40}ms` }}

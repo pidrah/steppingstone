@@ -85,7 +85,7 @@ export default async function PropertyDetailPage({ params }: Props) {
     <Container className="py-10 md:py-14">
       <Link
         href="/properties"
-        className="group inline-flex items-center gap-1.5 text-sm font-semibold text-leaf-300 transition-colors hover:text-white"
+        className="group inline-flex items-center gap-1.5 text-sm font-semibold text-leaf-700 transition-colors hover:text-leaf-900"
       >
         <svg
           viewBox="0 0 24 24"
@@ -116,7 +116,7 @@ export default async function PropertyDetailPage({ params }: Props) {
               </span>
             ) : null}
           </div>
-          <h1 className="mt-4 font-display text-4xl text-white">
+          <h1 className="mt-4 font-display text-4xl text-foreground">
             {property.title}
           </h1>
           {property.location ? (
@@ -138,7 +138,7 @@ export default async function PropertyDetailPage({ params }: Props) {
             </p>
           ) : null}
           {price ? (
-            <p className="mt-4 text-2xl font-bold text-leaf-200">{price}</p>
+            <p className="mt-4 text-2xl font-bold text-leaf-800">{price}</p>
           ) : null}
           {hasText(property.address) ? (
             <p className="mt-3 text-sm text-foreground/80">{property.address}</p>
@@ -149,7 +149,7 @@ export default async function PropertyDetailPage({ params }: Props) {
                 key={fact.label}
                 className="panel-dim rounded-xl p-4"
               >
-                <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-300">
+                <dt className="text-[11px] font-semibold uppercase tracking-[0.16em] text-leaf-700">
                   {fact.label}
                 </dt>
                 <dd className="mt-1.5 font-semibold text-foreground">
@@ -170,7 +170,7 @@ export default async function PropertyDetailPage({ params }: Props) {
 
       {hasText(property.description) ? (
         <section className="mt-12 max-w-3xl">
-          <h2 className="font-display text-3xl text-white">
+          <h2 className="font-display text-3xl text-foreground">
             About this property
           </h2>
           <p className="mt-4 whitespace-pre-line text-lg leading-8 text-foreground/85">
@@ -181,7 +181,7 @@ export default async function PropertyDetailPage({ params }: Props) {
 
       {property.features?.length ? (
         <section className="mt-10 max-w-3xl">
-          <h2 className="font-display text-3xl text-white">Features</h2>
+          <h2 className="font-display text-3xl text-foreground">Features</h2>
           <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
             {property.features.map((feature) => (
               <li key={feature} className="flex gap-2.5">

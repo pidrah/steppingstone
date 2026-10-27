@@ -32,7 +32,7 @@ export function GuyanaSkyline({
         fill="none"
       >
         {/* Hazy mid-rise blocks behind the foreground city */}
-        <g fill="#101c15">
+        <g fill="currentColor">
           <rect x="60" y="310" width="90" height="110" />
           <rect x="170" y="290" width="60" height="130" />
           <rect x="380" y="300" width="110" height="120" />
@@ -44,7 +44,7 @@ export function GuyanaSkyline({
           <path d="M700 336q55-40 110 0v84H700Z" />
         </g>
         {/* Demerara Harbour Bridge — the long floating span across the river */}
-        <g fill="#101c15">
+        <g fill="currentColor">
           <rect x="940" y="330" width="500" height="7" />
           <path d="M940 325q125-22 250 0t250 5v7H940v-12Z" />
           {Array.from({ length: 13 }, (_, index) => (
@@ -64,7 +64,7 @@ export function GuyanaSkyline({
       className={cn("block", className)}
       fill="none"
     >
-      <g fill="#070d09">
+      <g fill="currentColor">
         {/* Tree line along the sea front */}
         <path d="M0 380q30-36 64-20 18-26 46-12 26-20 44 4 24-14 34 8v40H0Z" />
         <path d="M420 380q22-30 52-16 20-22 44-6 22-16 36 6 20-10 28 6v30H420Z" />

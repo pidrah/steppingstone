@@ -44,11 +44,11 @@ export default async function ServicesPage() {
                 className="group panel-dim rounded-2xl p-6 transition duration-300 hover:-translate-y-1 hover:border-leaf-700/60 hover:shadow-lift"
               >
                 <div className="flex items-start gap-4">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-leaf-50 text-leaf-300 ring-1 ring-leaf-900/10 transition-colors group-hover:bg-leaf-100">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-leaf-50 text-leaf-700 ring-1 ring-leaf-900/10 transition-colors group-hover:bg-leaf-100">
                     <LeafGlyph className="h-5 w-5 rotate-[24deg]" />
                   </span>
                   <div>
-                    <h2 className="font-display text-2xl text-white">
+                    <h2 className="font-display text-2xl text-foreground">
                       {service.title}
                     </h2>
                     {service.description ? (

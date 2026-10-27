@@ -39,7 +39,7 @@ export default async function AboutPage() {
               aria-hidden="true"
               className="absolute -inset-3 rounded-full border border-gold-400/50"
             />
-            <div className="relative h-full w-full overflow-hidden rounded-full bg-ink-700 shadow-lift ring-4 ring-white/90">
+            <div className="relative h-full w-full overflow-hidden rounded-full bg-leaf-100 shadow-lift ring-4 ring-white">
               {profile?.photo_url ? (
                 <Image
                   src={profile.photo_url}
@@ -49,7 +49,7 @@ export default async function AboutPage() {
                   unoptimized={!profile.photo_url.startsWith("http")}
                 />
               ) : (
-                <div className="flex h-full items-center justify-center px-6 text-center text-white/60">
+                <div className="flex h-full items-center justify-center px-6 text-center text-muted">
                   Portrait coming soon
                 </div>
               )}
@@ -57,10 +57,10 @@ export default async function AboutPage() {
           </div>
         </div>
         <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-gold-300">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-leaf-700">
             {title}
           </p>
-          <h1 className="mt-2 font-display text-4xl text-white md:text-5xl">
+          <h1 className="mt-2 font-display text-4xl text-foreground md:text-5xl">
             {name}
           </h1>
           <p className="mt-4 text-muted">{COMPANY.addressSingleLine}</p>
@@ -69,7 +69,7 @@ export default async function AboutPage() {
             <div className="mt-10 space-y-8">
               {sections.map((section) => (
                 <section key={section.heading}>
-                  <h2 className="font-display text-2xl text-white">
+                  <h2 className="font-display text-2xl text-foreground">
                     {section.heading}
                   </h2>
                   <p className="mt-3 whitespace-pre-line leading-8 text-foreground/85">
@@ -79,8 +79,8 @@ export default async function AboutPage() {
               ))}
             </div>
           ) : (
-            <div className="mt-10 rounded-2xl panel-dim border-dashed border-white/20 px-6 py-10">
-              <p className="font-display text-2xl text-white">
+            <div className="mt-10 rounded-2xl panel-dim border-dashed border-leaf-700/20 px-6 py-10">
+              <p className="font-display text-2xl text-foreground">
                 Professional profile coming soon.
               </p>
               <p className="mt-3 max-w-xl text-muted">
@@ -91,7 +91,7 @@ export default async function AboutPage() {
           )}
 
           <div className="mt-12 max-w-xl">
-            <h2 className="font-display text-2xl text-white">Get in touch</h2>
+            <h2 className="font-display text-2xl text-foreground">Get in touch</h2>
             <div className="mt-5">
               <ContactActions />
             </div>
