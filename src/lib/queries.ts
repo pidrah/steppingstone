@@ -107,10 +107,15 @@ export const getPublishedProperties = cache(async function getPublishedPropertie
 
 export const getFeaturedProperties = cache(async function getFeaturedProperties() {
   const properties = await getPublishedProperties();
-  const featured = properties.filter((property) => property.is_featured);
-  return [...(featured.length ? featured : properties)]
-    .sort(mostRecentlyUpdatedFirst)
-    .slice(0, 3);
+  const latest = properties[0];
+  const selected = properties.filter((property) => property.is_featured);
+  const candidates = selected.length ? selected : properties;
+
+  if (latest && !candidates.some((property) => property.id === latest.id)) {
+    candidates.push(latest);
+  }
+
+  return [...candidates].sort(mostRecentlyUpdatedFirst).slice(0, 3);
 });
 
 export const getPropertyBySlug = cache(async function getPropertyBySlug(
