@@ -41,6 +41,11 @@ function mapProperty(row: Property & { images?: PropertyImage[] | null }): Prope
   };
 }
 
+function mostRecentlyUpdatedFirst(left: Property, right: Property) {
+  const updateDifference = Date.parse(right.updated_at) - Date.parse(left.updated_at);
+  return updateDifference || Date.parse(right.created_at) - Date.parse(left.created_at);
+}
+
 export const getPublishedProperties = cache(async function getPublishedProperties(
   filters: PropertyFilters = {},
 ): Promise<Property[]> {
@@ -103,7 +108,9 @@ export const getPublishedProperties = cache(async function getPublishedPropertie
 export const getFeaturedProperties = cache(async function getFeaturedProperties() {
   const properties = await getPublishedProperties();
   const featured = properties.filter((property) => property.is_featured);
-  return (featured.length ? featured : properties).slice(0, 3);
+  return [...(featured.length ? featured : properties)]
+    .sort(mostRecentlyUpdatedFirst)
+    .slice(0, 3);
 });
 
 export const getPropertyBySlug = cache(async function getPropertyBySlug(
