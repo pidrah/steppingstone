@@ -163,14 +163,18 @@ export function PanelBackdrop({
             "radial-gradient(90% 60% at 80% 0%, rgba(109,188,139,0.10) 0%, rgba(6,13,9,0) 55%), radial-gradient(70% 45% at 10% 8%, rgba(218,181,102,0.08) 0%, rgba(6,13,9,0) 60%)",
         }}
       />
-      <div className="absolute inset-x-0 bottom-0 overflow-hidden text-white/35">
-        <div className="skyline-track">
-          <GuyanaSkyline variant="near" className="h-full max-h-56 w-1/2" />
-          <GuyanaSkyline variant="near" className="h-full max-h-56 w-1/2" />
-        </div>
-      </div>
-      <CathedralSpire className="landmark-float absolute -left-6 bottom-0 h-[70%] w-auto text-white opacity-25" />
-      <StabroekTower className="landmark-drift absolute right-[6%] bottom-0 h-[78%] w-auto text-white opacity-20 [animation-delay:-5s]" />
+      {!imageSrc ? (
+        <>
+          <div className="absolute inset-x-0 bottom-0 overflow-hidden text-white/35">
+            <div className="skyline-track">
+              <GuyanaSkyline variant="near" className="h-full max-h-56 w-1/2" />
+              <GuyanaSkyline variant="near" className="h-full max-h-56 w-1/2" />
+            </div>
+          </div>
+          <CathedralSpire className="landmark-float absolute -left-6 bottom-0 h-[70%] w-auto text-white opacity-25" />
+          <StabroekTower className="landmark-drift absolute right-[6%] bottom-0 h-[78%] w-auto text-white opacity-20 [animation-delay:-5s]" />
+        </>
+      ) : null}
       <LeafGlyph
         id={`${idPrefix}-leaf-a`}
         tone="gold"
