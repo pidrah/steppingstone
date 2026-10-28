@@ -47,7 +47,7 @@ export default async function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden bg-leaf-900 text-white">
-        <PanelBackdrop idPrefix="home-hero" imageSrc="/landmarks/cathedral.jpg" />
+        <PanelBackdrop idPrefix="home-hero" imageSrc="/landmarks/city-hall.jpg" />
         <Container className="relative py-16 md:py-28">
           <p className="text-sm font-semibold uppercase tracking-[0.32em] text-gold-300">
             Georgetown, Guyana
@@ -85,14 +85,26 @@ export default async function HomePage() {
             <span>Property care & management</span>
           </p>
         </Container>
-        <a
-          href="https://commons.wikimedia.org/wiki/File:20191121_Guyana_0048_Georgetown_sRGB_(49295795336).jpg"
-          target="_blank"
-          rel="noreferrer"
-          className="absolute bottom-3 right-4 z-10 rounded-full bg-leaf-950/65 px-3 py-1.5 text-[10px] font-medium text-white/75 backdrop-blur-sm transition hover:text-white sm:right-6"
-        >
-          St. George’s Cathedral · Dan Lundberg · CC BY-SA 2.0
-        </a>
+        <p className="absolute bottom-3 right-4 z-10 flex flex-wrap items-center gap-x-1 rounded-full bg-leaf-950/65 px-3 py-1.5 text-[10px] font-medium text-white/75 backdrop-blur-sm sm:right-6">
+          <a
+            href="https://commons.wikimedia.org/wiki/File:City_Hall_-_Georgetown,_Guyana_(22872153024).jpg"
+            target="_blank"
+            rel="noreferrer"
+            className="transition hover:text-white"
+          >
+            City Hall photo · Dan Sloan
+          </a>
+          <span aria-hidden="true">·</span>
+          <a
+            href="https://creativecommons.org/licenses/by-sa/2.0/"
+            target="_blank"
+            rel="noreferrer"
+            className="transition hover:text-white"
+          >
+            CC BY-SA 2.0
+          </a>
+          <span>· cropped to fit</span>
+        </p>
       </section>
 
       <section>

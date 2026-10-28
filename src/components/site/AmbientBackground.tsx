@@ -151,7 +151,7 @@ export function PanelBackdrop({
           imageSrc
             ? {
                 background:
-                  "linear-gradient(90deg, rgba(13,42,28,0.92) 0%, rgba(23,64,44,0.78) 48%, rgba(13,42,28,0.56) 100%), linear-gradient(0deg, rgba(13,42,28,0.34), transparent 60%)",
+                  "linear-gradient(90deg, rgba(13,42,28,0.82) 0%, rgba(23,64,44,0.6) 48%, rgba(13,42,28,0.32) 100%), linear-gradient(0deg, rgba(13,42,28,0.3), transparent 60%)",
               }
             : undefined
         }
